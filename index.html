@@ -1,0 +1,420 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MystiqDev</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        h5 {
+            font-family: 'M Plus 1p', sans-serif;
+            font-weight: 500;
+        }
+    </style>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="bg-image">
+        <header>
+            <div class="logo">
+                <a href="index.html"><span class="dy-t">MystiqDev</span></a>
+            </div>
+            <nav>
+                <ul class="sidebar">
+                    <li onclick=hideSidebar()><a href="#menuclose" class="x"><svg xmlns="http://www.w3.org/2000/svg"
+                                height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF">
+                                <path
+                                    d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                            </svg></a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#credits">Credits</a></li>
+                </ul>
+                <ul>
+                    <li class="hideOnMobile"><a href="#about">About</a></li>
+                    <li class="hideOnMobile"><a href="#projects">Projects</a></li>
+                    <li class="hideOnMobile"><a href="#credits">Credits</a></li>
+                    <li class="menu-button" onclick=showSidebar()><a href="#menu"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="#FFFFFF">
+                                <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                            </svg></a></li>
+                </ul>
+            </nav>
+            <div class="cta">
+                <a href="#contact" class="dy-btn"><span>Hire me!</span></a>
+            </div>
+        </header>
+        <div class="intro">
+            <div class="intro-text">
+                <h1><span>Hi, I'm <span class="dy-t typewriter" data-text="MystiqDev"></span></h1>
+                <p>I'm a <span class="color-s">Front-end developer</span> with a focus on clean, responsive design.
+                    Skilled in HTML and CSS to craft
+                    user-friendly, accessible web interfaces. Passionate about building beautiful digital experiences.
+                </p>
+            </div>
+            <a href="#contact" class="dy-btn"><span>Contact Me!</span></a>
+            <div class="int-socials">
+                <ul>
+                    <li><a href="https://twitter.com"><img src="assets/twitter.png"> <img
+                                src="assets/twitter-hover.png"></a>
+                    </li>
+                    <li><a href="https://linkedin.com"><img src="assets/linkedin.png"><img
+                                src="assets/linkedin-hover.png"></a></li>
+                    <li><a href="https://instagram.com"><img src="assets/instagram.png"><img
+                                src="assets/instagram-hover.png"></a></li>
+                    <li><a href="https://github.com"><img src="assets/github.png"><img
+                                src="assets/github-hover.png"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <section>
+        <div class="info">
+            <div class="left-hand">
+                <div class="progress fade">
+                    <h2><span class="title-s">My Language Progress</span></h2>
+                    <div class="progress-circles">
+                        <div class="two-circles">
+                            <div class="circle" data-percent="83">
+                                <div class="outer">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+                                        <defs>
+                                            <linearGradient id="GradientColor1">
+                                                <stop offset="0%" stop-color="#EA0990" />
+                                                <stop offset="100%" stop-color="#700846" />
+                                            </linearGradient>
+                                        </defs>
+                                        <circle cx="100" cy="100" r="88" stroke="#2a2a2a" stroke-width="14" />
+                                        <circle cx="100" cy="100" r="88" stroke="url(#GradientColor1)" stroke-width="14"
+                                            stroke-linecap="round" />
+
+                                    </svg>
+
+                                    <div class="inner">
+                                        <div id="value">
+                                            <span>83%</span>
+                                            <span class="color-s">HTML</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="circle" data-percent="71">
+                                <div class="outer">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+                                        <defs>
+                                            <linearGradient id="GradientColor2">
+                                                <stop offset="0%" stop-color="#EA0990" />
+                                                <stop offset="100%" stop-color="#700846" />
+                                            </linearGradient>
+                                        </defs>
+                                        <circle cx="100" cy="100" r="88" stroke="#2a2a2a" stroke-width="14" />
+                                        <circle cx="100" cy="100" r="88" stroke="url(#GradientColor1)" stroke-width="14"
+                                            stroke-linecap="round" />
+                                    </svg>
+
+                                    <div class="inner">
+                                        <div id="value">
+                                            <span>71%</span>
+                                            <span class="color-s">CSS</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="da-circle">
+                            <div class="circle" data-percent="22">
+                                <div class="outer">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+                                        <defs>
+                                            <linearGradient id="GradientColor3">
+                                                <stop offset="0%" stop-color="#EA0990" />
+                                                <stop offset="100%" stop-color="#700846" />
+                                            </linearGradient>
+                                        </defs>
+                                        <circle cx="100" cy="100" r="88" stroke="#2a2a2a" stroke-width="14" />
+                                        <circle cx="100" cy="100" r="88" stroke="url(#GradientColor1)" stroke-width="14"
+                                            stroke-linecap="round" />
+                                    </svg>
+
+                                    <div class="inner">
+                                        <div id="value">
+                                            <span>22%</span>
+                                            <span class="color-s">JavaScript</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-bars">
+                        <div class="bar-item">
+                            <div class="bar-label">
+                                <span class="color-s">HTML</span>
+                                <span>83%</span>
+                            </div>
+                            <div class="bar-track">
+                                <div class="bar-fill" data-percent="83"></div>
+                            </div>
+                        </div>
+
+                        <div class="bar-item">
+                            <div class="bar-label">
+                                <span class="color-s">CSS</span>
+                                <span>71%</span>
+                            </div>
+                            <div class="bar-track">
+                                <div class="bar-fill" data-percent="71"></div>
+                            </div>
+                        </div>
+
+                        <div class="bar-item">
+                            <div class="bar-label">
+                                <span class="color-s">JavaScript</span>
+                                <span>22%</span>
+                            </div>
+                            <div class="bar-track">
+                                <div class="bar-fill" data-percent="22"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="builds fade">
+                    <h2><span class="title-s">Pages I can build</span></h2>
+                    <div class="cards">
+                        <div class="card">
+                            <img src="assets/landing-page.png">
+                            <h2><span class="color-s">Landing Pages</span></h2>
+                            <p>I design modern landing pages that grab attention, guide users clearly, and encourage
+                                them to take action, whether that’s signing up, contacting you, or learning more about
+                                your product.</p>
+
+                        </div>
+                        <div class="card">
+                            <img src="assets/briefcase.png">
+                            <h2><span class="color-s">Business Sites</span></h2>
+                            <p>I build business websites that clearly present your services, build trust with visitors,
+                                and help your brand look professional, reliable, and ready for real clients.</p>
+                        </div>
+                        <div class="card">
+                            <img src="assets/portfolio.png">
+                            <h2><span class="color-s">Portfolios</span></h2>
+                            <p>I create modern portfolios that showcase your work, skills, and personality in a clear
+                                and engaging way, helping you stand out and leave a strong first impression.</p>
+
+                        </div>
+                        <div class="card">
+                            <img src="assets/dashboard.png">
+                            <h2><span class="color-s">Dashboards</span></h2>
+                            <p>I design dashboards that organize data in a clean, visual, and easy-to-understand layout,
+                                making it simple for users to track information and take action.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-hand">
+                <div class="about fade" id="about">
+                    <h2><span class="title-s">About me</span></h2>
+                    <div class="about-p">I'm a <span class="color-s">Front-End Web Developer</span>, 18 years old, from
+                        Oman. I specialize in
+                        creating clean, modern, and user-friendly interfaces with a strong focus on visual detail,
+                        responsiveness, and usability across different screen sizes and devices. I mainly work with
+                        HTML,
+                        CSS, and JavaScript, and I’m constantly improving my skills by building
+                        real projects, experimenting with new designs, and learning best practices used in the industry.
+                        While I’m still in the process of growing and training, I take every project seriously and put
+                        real
+                        effort into delivering quality results. My goal is to become a full-stack developer in the near
+                        future, but for now, I focus on front-end
+                        work where I can provide the most value. If you’re looking for someone who is motivated,
+                        detail-oriented, and willing to learn and improve with every project, I’d love the opportunity
+                        to
+                        work with you and grow through real-world experience.</span>
+                    </div>
+                </div>
+                <div class="services fade">
+                    <h2><span class="title-s">Services I provide</span></h2>
+                    <ul>
+                        <li>
+                            <div class="icon">
+                                <img src="assets/responsive.png" class="icon-default">
+                                <img src="assets/responsive-hover.png" class="icon-hover">
+                            </div>
+                            <div class="services-text">
+                                <h2><span class="color-s">Responsive Design</span></h2>
+                                <p>I build websites that automatically adjust to different screen sizes, including
+                                    desktops, tablets, mobile phones, and maybe even your smart fridge. The layout stays
+                                    clean, readable, and easy to
+                                    use on any device, so users get a smooth experience no matter how they visit your
+                                    site.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon">
+                                <img src="assets/time.png" class="icon-default">
+                                <img src="assets/time-hover.png" class="icon-hover">
+                            </div>
+                            <div class="services-text">
+                                <h2><span class="color-s">Quick Development</span></h2>
+                                <p>My development process is fast and efficient, allowing projects to
+                                    move forward quickly. At the same time, I make sure every detail is polished and the
+                                    final result meets high quality standards.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon">
+                                <img src="assets/interface.png" class="icon-default">
+                                <img src="assets/interface-hover.png" class="icon-hover">
+                            </div>
+                            <div class="services-text">
+                                <h2><span class="color-s">Interactive Pages</span></h2>
+                                <p>A website shouldn’t feel static or boring. I carefully add animations, hover effects,
+                                    and interactive elements that bring your pages to life while keeping everything
+                                    smooth and user-friendly.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon">
+                                <img src="assets/gear.png" class="icon-default">
+                                <img src="assets/gear-hover.png" class="icon-hover">
+                            </div>
+                            <div class="services-text">
+                                <h2><span class="color-s">Functional Pages</span></h2>
+                                <p>Not everything is about visuals. I make sure your pages actually do something useful,
+                                    with some functionalities that fits your goals instead of pointless features.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tech-stack fade">
+                    <h2><span class="title-s">Tech Stack</span></h2>
+                    <div class="tech-icons">
+                        <img src="assets/html.png">
+                        <img src="assets/css.png">
+                        <img src="assets/js.png">
+                        <img src="assets/git.png">
+                        <img src="assets/vscode.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="projects fade" id="projects">
+            <h2><span class="title-s">My other Projects</span></h2>
+            <div class="pro-cards">
+                <div class="pro-card">
+                    <img src="assets/home-background2.png">
+                    <div class="prc-text">
+                        <h3><span class="color-s">Project Name</span></h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore reprehenderit omnis
+                            voluptatem
+                            vero alias ipsum quia doloribus. Quidem, dolorum eum.</p>
+                    </div>
+                    <div class="prc-btn">
+                        <a href="#" class="dy-btn"><span>GitHub</span></a>
+                    </div>
+                </div>
+                <div class="pro-card">
+                    <img src="assets/home-background3.png">
+                    <div class="prc-text">
+                        <h3><span class="color-s">Project Name</span></h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore reprehenderit omnis
+                            voluptatem
+                            vero alias ipsum quia doloribus. Quidem, dolorum eum.</p>
+                    </div>
+                    <div class="prc-btn">
+                        <a href="#" class="dy-btn"><span>GitHub</span></a>
+                    </div>
+                </div>
+                <div class="pro-card">
+                    <img src="assets/home-background4.png">
+                    <div class="prc-text">
+                        <h3><span class="color-s">Project Name</span></h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore reprehenderit omnis
+                            voluptatem
+                            vero alias ipsum quia doloribus. Quidem, dolorum eum.</p>
+                    </div>
+                    <div class="prc-btn">
+                        <a href="#" class="dy-btn"><span>GitHub</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contact-section fade" id="contact">
+            <h2><span class="title-s">Get in Touch!</span></h2>
+            <form class="contact-form" action="https://formspree.io/f/mvzzrwyp" method="POST">
+
+                <div class="input-container">
+                    <input type="text" name="subject" placeholder="Subject" required>
+                </div>
+                <div class="input-container">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="input-container">
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="dy-btn"><span>Send</span></button>
+            </form>
+        </div>
+    </section>
+    <footer class="fade">
+        <div class="footer-content">
+            <div class="copyright">
+                <h2><span class="title-s">Copyright</span></h2>
+                <p>&copy; 2026 MystiqDev. All rights reserved.</p>
+            </div>
+            <div class="credits" id="credits">
+                <h2><span class="title-s">Credits</span></h2>
+                <ul>
+                    <li><a href="https://www.flaticon.com/free-icons/ux" title="ux icons">Ux icons created by Tanah
+                            Basah - Flaticon</a></li>
+                    <li><a href="https://www.flaticon.com/free-icons/stopwatch" title="stopwatch icons">Stopwatch
+                            icons created by fjstudio - Flaticon</a></li>
+                    <li><a href="https://www.flaticon.com/free-icon/responsive_11442002?term=responsive&page=1&position=12&origin=search&related_id=11442002"
+                            title="responsive icon">Responsive icon created by Saepul Nahwan - Flaticon</a></li>
+                    <li><a href="https://www.flaticon.com/free-icons/settings" title="settings icons">Settings icons
+                            created by Pixel perfect - Flaticon</a></li>
+                    <li><a href="https://www.flaticon.com/free-icons/bag" title="bag icons">Bag icons created by Dimitry
+                            Miroliubov - Flaticon</a></li>
+                    <li><a href="https://www.flaticon.com/free-icons/landing-page" title="landing page icons">Landing
+                            page icons created by deemakdaksina - Flaticon</a></li>
+                    <li><a href="https://www.flaticon.com/free-icons/folder" title="folder icons">Folder icons created
+                            by Tanah Basah - Flaticon</a></li>
+                    <li><a href="https://www.flaticon.com/free-icons/dashboard" title="dashboard icons">Dashboard icons
+                            created by Pixel perfect - Flaticon</a></li>
+                </ul>
+            </div>
+            <div class="socials">
+                <h2><span class="title-s">Follow Me On</span></h2>
+                <ul>
+                    <li><a href="https://twitter.com"><img src="assets/twitter.png"> <img
+                                src="assets/twitter-hover.png"></a></li>
+                    <li><a href="https://linkedin.com"><img src="assets/linkedin.png"><img
+                                src="assets/linkedin-hover.png"></a></li>
+                    <li><a href="https://instagram.com"><img src="assets/instagram.png"><img
+                                src="assets/instagram-hover.png"></a></li>
+                    <li><a href="https://github.com"><img src="assets/github.png"><img
+                                src="assets/github-hover.png"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
