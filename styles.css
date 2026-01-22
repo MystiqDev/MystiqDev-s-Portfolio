@@ -1074,10 +1074,6 @@ circle {
     padding-bottom: 30px;
     position: relative;
     z-index: 5;
-}
-
-.prc-btn {
-    display: flex;
     gap: 20px;
 }
 
