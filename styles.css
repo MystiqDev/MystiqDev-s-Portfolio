@@ -1076,6 +1076,11 @@ circle {
     z-index: 5;
 }
 
+.prc-btn {
+    display: flex;
+    gap: 20px;
+}
+
 .pro-card .dy-btn span {
     font-size: 16px;
     font-weight: 500;
