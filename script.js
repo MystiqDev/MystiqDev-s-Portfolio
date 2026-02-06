@@ -1,3 +1,9 @@
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+    header.classList.toggle("sticky", window.scrollY > 50);
+});
+
 function animateProgressCircles() {
     document.querySelectorAll('.circle').forEach(circle => {
         const percent = circle.dataset.percent;
@@ -69,16 +75,6 @@ window.addEventListener('load', () => {
 
     animateProgressCircles();
     animateProgressBars();
-});
-
-const header = document.querySelector('header');
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
-        header.classList.add('sticky');
-    } else {
-        header.classList.remove('sticky');
-    }
 });
 
 const sidebar = document.querySelector('.sidebar');
