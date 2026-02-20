@@ -4,44 +4,6 @@ window.addEventListener("scroll", () => {
     header.classList.toggle("sticky", window.scrollY > 50);
 });
 
-function animateProgressCircles() {
-    document.querySelectorAll('.circle').forEach(circle => {
-        const percent = circle.dataset.percent;
-        const svgCircles = circle.querySelectorAll('circle');
-        const progressCircle = svgCircles[1];
-
-        if (!progressCircle) return;
-
-        const radius = progressCircle.r.baseVal.value;
-        const circumference = 2 * Math.PI * radius;
-
-        progressCircle.style.transition = 'none';
-        progressCircle.style.strokeDasharray = circumference;
-        progressCircle.style.strokeDashoffset = circumference;
-
-        progressCircle.getBoundingClientRect();
-
-        progressCircle.style.transition = 'stroke-dashoffset 2s ease';
-        progressCircle.style.strokeDashoffset =
-            circumference * (1 - percent / 100);
-    });
-}
-
-
-function animateProgressBars() {
-    document.querySelectorAll('.bar-fill').forEach(bar => {
-        const percent = bar.dataset.percent;
-
-        bar.style.transition = 'none';
-        bar.style.width = '0%';
-
-        bar.getBoundingClientRect();
-
-        bar.style.transition = 'width 2s ease';
-        bar.style.width = percent + '%';
-    });
-}
-
 
 const faders = document.querySelectorAll('.fade');
 
@@ -52,10 +14,6 @@ const observer = new IntersectionObserver(
                 entry.target.classList.add('show');
                 observer.unobserve(entry.target);
 
-                if (entry.target.classList.contains('progress')) {
-                    animateProgressCircles();
-                    animateProgressBars();
-                }
             } else {
                 entry.target.classList.remove('show');
             }
@@ -67,15 +25,6 @@ const observer = new IntersectionObserver(
 );
 
 faders.forEach(el => observer.observe(el));
-
-
-window.addEventListener('load', () => {
-    document.querySelector('.progress')?.classList.add('show');
-    document.querySelector('.about')?.classList.add('show');
-
-    animateProgressCircles();
-    animateProgressBars();
-});
 
 const sidebar = document.querySelector('.sidebar');
 
@@ -105,5 +54,35 @@ function typeWriter(el, speed = 90) {
 
 document.addEventListener("DOMContentLoaded", () => {
     const tw = document.querySelector(".typewriter");
+    const menuButton = document.querySelector(".menu-button");
+    const isTouchCardUi = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+    const cardSelector = ".builds .card, .pro-card:not(.coming-soon)";
+
     if (tw) typeWriter(tw, 150);
+
+    function clearActiveCards() {
+        document.querySelectorAll(`${cardSelector}.tap-active`).forEach((card) => {
+            card.classList.remove("tap-active");
+        });
+    }
+
+    document.addEventListener("click", (event) => {
+        if (isTouchCardUi) {
+            const tappedCard = event.target.closest(cardSelector);
+            if (tappedCard) {
+                const alreadyActive = tappedCard.classList.contains("tap-active");
+                clearActiveCards();
+                if (!alreadyActive) tappedCard.classList.add("tap-active");
+            } else {
+                clearActiveCards();
+            }
+        }
+
+        const clickedInsideSidebar = sidebar.contains(event.target);
+        const clickedMenuButton = menuButton && menuButton.contains(event.target);
+
+        if (!clickedInsideSidebar && !clickedMenuButton && sidebar.style.display === "flex") {
+            hideSidebar();
+        }
+    });
 });
