@@ -1,8 +1,9 @@
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MystiqDev</title>
+    <title>MystiqDev | Front-End Developer</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
     <script
@@ -13,597 +14,886 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
-
-      h5 {
-        font-family: "M Plus 1p", sans-serif;
-        font-weight: 500;
-      }
-    </style>
     <script src="script.js" defer></script>
   </head>
 
   <body>
-    <div class="bg-image">
-      <header>
-        <div class="logo">
-          <img src="assets/logo-colored.webp" />
-          <a href="index.html"><span class="dy-t">MystiqDev</span></a>
-        </div>
-        <nav>
-          <ul class="sidebar">
-            <li onclick="hideSidebar()">
-              <a href="#menuclose" class="x"
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24px"
-                  viewBox="0 -960 960 960"
-                  width="24px"
-                  fill="#FFFFFF"
-                >
-                  <path
-                    d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
-                  /></svg
-              ></a>
-            </li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#credits">Credits</a></li>
-            <li class="sidebar-cta">
-              <a href="#contact" class="dy-btn"><span>Hire me!</span></a>
-            </li>
-          </ul>
-          <ul>
-            <li class="hideOnMobile"><a href="#about">About</a></li>
-            <li class="hideOnMobile"><a href="#projects">Projects</a></li>
-            <li class="hideOnMobile"><a href="#faq">FAQ</a></li>
-            <li class="hideOnMobile"><a href="#credits">Credits</a></li>
-            <li class="menu-button" onclick="showSidebar()">
-              <a href="#menu"
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24px"
-                  viewBox="0 -960 960 960"
-                  width="24px"
-                  fill="#FFFFFF"
-                >
-                  <path
-                    d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"
-                  /></svg
-              ></a>
-            </li>
-          </ul>
+    <!-- Scroll progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Cursor glow -->
+    <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+    <!--HEADER-->
+    <header id="header">
+      <div class="header-inner">
+        <a href="index.html" class="logo" aria-label="MystiqDev home">
+          <img src="assets/logo-colored.webp" alt="" width="38" height="38" />
+          <span class="logo-name">MystiqDev</span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#services">Services</a>
+          <a href="#faq">FAQ</a>
         </nav>
-        <div class="cta">
-          <a href="#contact" class="dy-btn"><span>Hire me!</span></a>
-        </div>
-      </header>
-      <div class="intro">
-        <div class="intro-text">
-          <h1>
-            <span
-              >Hi, I'm
-              <span class="dy-t typewriter" data-text="MystiqDev"></span
-            ></span>
-          </h1>
-          <p>
-            I'm a <span class="highlight">Front-end developer</span> with
-            special interest in clean and responsive design. Experienced in HTML
-            and CSS for designing user-friendly and accessible web interfaces.
-            Passionate about designing stunning web experiences.
-          </p>
-        </div>
-        <a href="#contact" class="dy-btn"><span>Contact Me!</span></a>
-        <div class="int-socials">
-          <ul>
-            <li>
-              <a
-                href="https://x.com/my_st45"
-                target="_blank"
-                rel="noopener noreferrer"
-                ><img src="assets/twitter.webp" />
-                <img src="assets/twitter-hover.webp"
-              /></a>
-            </li>
-            <li>
-              <a
-                href="https://www.linkedin.com/in/mystique-x-9572b93a7/"
-                target="_blank"
-                rel="noopener noreferrer"
-                ><img src="assets/linkedin.webp" /><img
-                  src="assets/linkedin-hover.webp"
-              /></a>
-            </li>
-            <li>
-              <a
-                href="https://www.instagram.com/mysti_qdev/"
-                target="_blank"
-                rel="noopener noreferrer"
-                ><img src="assets/instagram.webp" /><img
-                  src="assets/instagram-hover.webp"
-              /></a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/MystiqDev"
-                target="_blank"
-                rel="noopener noreferrer"
-                ><img src="assets/github.webp" /><img
-                  src="assets/github-hover.webp"
-              /></a>
-            </li>
-          </ul>
-        </div>
+
+        <a href="#contact" class="btn-hire">Hire me</a>
+
+        <button
+          class="hamburger"
+          id="hamburger"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile nav overlay -->
+    <div
+      class="mobile-menu"
+      id="mobile-menu"
+      aria-hidden="true"
+      role="dialog"
+      aria-label="Mobile navigation"
+    >
+      <button
+        class="mobile-menu-close"
+        id="mobile-menu-close"
+        aria-label="Close menu"
+      >
+        &times;
+      </button>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#services">Services</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="btn-hire mobile-hire">Hire me</a>
+      </nav>
+      <div class="mobile-menu-socials">
+        <a
+          href="https://x.com/my_st45"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Twitter/X"
+          ><ion-icon name="logo-twitter"></ion-icon
+        ></a>
+        <a
+          href="https://www.linkedin.com/in/mystique-x-9572b93a7/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          ><ion-icon name="logo-linkedin"></ion-icon
+        ></a>
+        <a
+          href="https://www.instagram.com/mysti_qdev/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          ><ion-icon name="logo-instagram"></ion-icon
+        ></a>
+        <a
+          href="https://github.com/MystiqDev"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+          ><ion-icon name="logo-github"></ion-icon
+        ></a>
       </div>
     </div>
-    <section>
-      <div class="info">
-        <div class="left-hand">
-          <div class="tech-stack fade">
-            <h2>Tech Stack</h2>
-            <div class="tech-icons">
-              <img src="assets/html.webp" />
-              <img src="assets/css.webp" />
-              <img src="assets/js.webp" />
-              <img src="assets/git.webp" />
-              <img src="assets/vscode.webp" />
+    <div
+      class="mobile-menu-backdrop"
+      id="mobile-menu-backdrop"
+      aria-hidden="true"
+    ></div>
+
+    <!--HERO-->
+    <section class="hero" aria-label="Introduction">
+      <div class="hero-bg-grid" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+
+      <div class="hero-inner">
+        <div class="hero-label fade-up">Available for freelance work</div>
+
+        <h1 class="hero-title fade-up delay-1">
+          <span class="hero-title-line">Front-End</span>
+          <span class="hero-title-line hero-name">MystiqDev</span>
+          <span class="hero-title-line">Developer</span>
+        </h1>
+
+        <p class="hero-sub fade-up delay-2">
+          I'm <strong>MystiqDev</strong> — I build clean, fast, and beautifully
+          interactive websites using pure HTML, CSS &amp; JavaScript. No
+          frameworks, no bloat — just craftsmanship.
+        </p>
+
+        <div class="hero-actions fade-up delay-3">
+          <a href="#contact" class="btn-primary">Start a project</a>
+          <a href="#projects" class="btn-ghost">See my work</a>
+        </div>
+
+        <div class="hero-socials fade-up delay-4" aria-label="Social links">
+          <a
+            href="https://x.com/my_st45"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Twitter"
+          >
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/mystique-x-9572b93a7/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a>
+          <a
+            href="https://www.instagram.com/mysti_qdev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+          <a
+            href="https://github.com/MystiqDev"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <ion-icon name="logo-github"></ion-icon>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-stat-strip fade-up delay-4" aria-label="Key stats">
+        <div class="stat-item">
+          <span class="stat-num">2+</span>
+          <span class="stat-label">Years of practice</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num">3+</span>
+          <span class="stat-label">Projects completed</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num">100%</span>
+          <span class="stat-label">Vanilla coding</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num">Fast</span>
+          <span class="stat-label">Delivery guaranteed</span>
+        </div>
+      </div>
+    </section>
+
+    <!--ABOUT-->
+    <section class="about" id="about" aria-labelledby="about-heading">
+      <div class="section-inner about-inner">
+        <div class="about-text fade">
+          <div class="section-tag">Who I am</div>
+          <h2 id="about-heading">
+            A developer who<br /><em>cares about details</em>
+          </h2>
+          <p>
+            Hi, I'm Mysti — a front-end developer based in Oman. I specialize in
+            clean, responsive websites that load fast, look sharp on every
+            device, and feel genuinely crafted rather than assembled.
+          </p>
+          <p>
+            I build with pure HTML, CSS, and Vanilla JavaScript. No bulky
+            frameworks — just lean, maintainable code with a strong eye for
+            typography, spacing, and interaction design.
+          </p>
+          <div class="about-badges">
+            <span class="badge">Clean code</span>
+            <span class="badge">Pixel-perfect</span>
+            <span class="badge">Fast delivery</span>
+            <span class="badge">Mobile-first</span>
+          </div>
+        </div>
+
+        <div class="about-visual fade delay-1">
+          <div class="tech-card">
+            <div class="tech-card-header">Tech Stack</div>
+            <div class="tech-grid">
+              <div class="tech-item">
+                <img src="assets/html.webp" alt="HTML5" />
+                <span>HTML5</span>
+              </div>
+              <div class="tech-item">
+                <img src="assets/css.webp" alt="CSS3" />
+                <span>CSS3</span>
+              </div>
+              <div class="tech-item">
+                <img src="assets/js.webp" alt="JavaScript" />
+                <span>JavaScript</span>
+              </div>
+              <div class="tech-item">
+                <img src="assets/git.webp" alt="Git" />
+                <span>Git</span>
+              </div>
+              <div class="tech-item">
+                <img src="assets/vscode.webp" alt="VS Code" />
+                <span>VS Code</span>
+              </div>
             </div>
           </div>
-          <div class="builds fade">
-            <h2>Pages I can build</h2>
-            <div class="cards">
-              <div class="card">
-                <img src="assets/landing-page.webp" />
-                <h3>Landing Pages</h3>
-                <p>
-                  I design modern landing pages that grab attention, guide users
-                  clearly, and encourage them to take action, whether that’s
-                  signing up, contacting you, or learning more about your
-                  product.
-                </p>
+
+          <div class="exp-card fade delay-2">
+            <div class="exp-bar">
+              <span class="exp-bar-label">HTML &amp; CSS</span>
+              <div class="exp-bar-track">
+                <div class="exp-bar-fill" style="--w: 92%"></div>
               </div>
-              <div class="card">
-                <img src="assets/briefcase.webp" />
-                <h3>Business Sites</h3>
-                <p>
-                  I build business websites that clearly present your services,
-                  build trust with visitors, and help your brand look
-                  professional, reliable, and ready for real clients.
-                </p>
+              <span class="exp-bar-pct">92%</span>
+            </div>
+            <div class="exp-bar">
+              <span class="exp-bar-label">JavaScript</span>
+              <div class="exp-bar-track">
+                <div class="exp-bar-fill" style="--w: 70%"></div>
               </div>
-              <div class="card">
-                <img src="assets/portfolio.webp" />
-                <h3>Portfolios</h3>
-                <p>
-                  I create modern portfolios that showcase your work, skills,
-                  and personality in a clear and engaging way, helping you stand
-                  out and leave a strong first impression.
-                </p>
+              <span class="exp-bar-pct">70%</span>
+            </div>
+            <div class="exp-bar">
+              <span class="exp-bar-label">Responsive Design</span>
+              <div class="exp-bar-track">
+                <div class="exp-bar-fill" style="--w: 88%"></div>
               </div>
+              <span class="exp-bar-pct">88%</span>
+            </div>
+            <div class="exp-bar">
+              <span class="exp-bar-label">UI/UX Sensibility</span>
+              <div class="exp-bar-track">
+                <div class="exp-bar-fill" style="--w: 80%"></div>
+              </div>
+              <span class="exp-bar-pct">80%</span>
             </div>
           </div>
-          <div class="trust-me-bro fade">
-            <h2>Why you should trust me?</h2>
-            <p class="para">
-              Want to build a simple site whether it be a business page, a
-              portfolio, or a landing page? You are in the right place! My work
-              focuses on creating clean, responsive websites with modern design
-              and user-friendly interfaces. I carefully plan and optimize all my
-              website designs for multiple devices. Clear and timely
-              communication during the course of each project is extremely
-              important to me, as is providing my clients with exactly what they
-              want, without cutting corners or quitting before completing a
-              project. My goal isn’t just to produce a website; it’s to create a
-              quality, highly professional website for you.
+        </div>
+      </div>
+    </section>
+
+    <!--SERVICES-->
+    <section class="services" id="services" aria-labelledby="services-heading">
+      <div class="section-inner">
+        <div class="section-header fade">
+          <div class="section-tag">What I do</div>
+          <h2 id="services-heading">Services I provide</h2>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card fade">
+            <div class="service-icon" aria-hidden="true">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+            <h3>Responsive Design</h3>
+            <p>
+              Websites that work flawlessly on every screen — from smart fridges
+              to ultrawide monitors. Fluid layouts, adaptive components, and
+              mobile-first thinking.
             </p>
+            <div class="service-tag">All devices</div>
           </div>
-        </div>
-        <div class="right-hand">
-          <div class="about fade" id="about">
-            <h2>About me</h2>
-            <div class="para">
-              Hi! I’m MystiqDev, known as Mysti. I'm a
-              <span class="highlight">front-end developer</span> from Oman
-              specializing in clean, responsive websites built with HTML, CSS,
-              and Vanilla JavaScript. I focus on creating lightweight, modern
-              landing pages that look professional, load fast, and work
-              seamlessly across all devices. I value clean code, attention to
-              detail, and clear communication throughout the project. I’m
-              constantly improving my skills and committed to delivering
-              high-quality results on time.
+
+          <div class="service-card fade delay-1">
+            <div class="service-icon" aria-hidden="true">
+              <ion-icon name="flash-outline"></ion-icon>
             </div>
+            <h3>Quick Development</h3>
+            <p>
+              Fast, efficient delivery without cutting corners. I move quickly
+              through the build process while keeping every detail polished and
+              every line intentional.
+            </p>
+            <div class="service-tag">On schedule</div>
           </div>
-          <div class="services fade">
-            <h2>Services I provide</h2>
-            <ul>
-              <li>
-                <div class="icon">
-                  <img src="assets/responsive.webp" class="icon-default" />
-                  <img src="assets/responsive-hover.webp" class="icon-hover" />
-                </div>
-                <div class="services-text">
-                  <h3>Responsive Design</h3>
-                  <p>
-                    I build websites that automatically adjust to different
-                    screen sizes, including desktops, tablets, mobile phones,
-                    and maybe even your smart fridge. The layout stays clean,
-                    readable, and easy to use on any device, so users get a
-                    smooth experience no matter how they visit your site.
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div class="icon">
-                  <img src="assets/time.webp" class="icon-default" />
-                  <img src="assets/time-hover.webp" class="icon-hover" />
-                </div>
-                <div class="services-text">
-                  <h3>Quick Development</h3>
-                  <p>
-                    My development process is fast and efficient, allowing
-                    projects to move forward quickly. At the same time, I make
-                    sure every detail is polished and the final result meets
-                    high quality standards.
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div class="icon">
-                  <img src="assets/interface.webp" class="icon-default" />
-                  <img src="assets/interface-hover.webp" class="icon-hover" />
-                </div>
-                <div class="services-text">
-                  <h3>Interactive Pages</h3>
-                  <p>
-                    A website shouldn’t feel static or boring. I carefully add
-                    animations, hover effects, and interactive elements that
-                    bring your pages to life while keeping everything smooth and
-                    user-friendly.
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div class="icon">
-                  <img src="assets/gear.webp" class="icon-default" />
-                  <img src="assets/gear-hover.webp" class="icon-hover" />
-                </div>
-                <div class="services-text">
-                  <h3>Functional Pages</h3>
-                  <p>
-                    Not everything is about visuals. I make sure your pages
-                    actually do something useful, with some functionalities that
-                    fits your goals instead of pointless features.
-                  </p>
-                </div>
-              </li>
-            </ul>
+
+          <div class="service-card fade delay-2">
+            <div class="service-icon" aria-hidden="true">
+              <ion-icon name="sparkles-outline"></ion-icon>
+            </div>
+            <h3>Interactive Pages</h3>
+            <p>
+              Smooth animations, hover effects, and micro-interactions that give
+              your site personality. Nothing gratuitous — every motion earns its
+              place.
+            </p>
+            <div class="service-tag">Polished UX</div>
+          </div>
+
+          <div class="service-card fade delay-3">
+            <div class="service-icon" aria-hidden="true">
+              <ion-icon name="code-slash-outline"></ion-icon>
+            </div>
+            <h3>Vanilla Coding</h3>
+            <p>
+              Pure HTML, CSS, and JavaScript — no React, no bloat. Lean,
+              fast-loading sites with clean code you can actually read and
+              maintain long-term.
+            </p>
+            <div class="service-tag">No frameworks</div>
+          </div>
+
+          <div class="service-card fade delay-1">
+            <div class="service-icon" aria-hidden="true">
+              <ion-icon name="layers-outline"></ion-icon>
+            </div>
+            <h3>Landing Pages</h3>
+            <p>
+              Conversion-focused landing pages that grab attention, guide
+              visitors through your value proposition, and compel them to take
+              action.
+            </p>
+            <div class="service-tag">High conversion</div>
+          </div>
+
+          <div class="service-card fade delay-2">
+            <div class="service-icon" aria-hidden="true">
+              <ion-icon name="briefcase-outline"></ion-icon>
+            </div>
+            <h3>Business Sites</h3>
+            <p>
+              Professional websites that build credibility, showcase your
+              services clearly, and make your brand look ready for real clients
+              and serious business.
+            </p>
+            <div class="service-tag">Brand presence</div>
           </div>
         </div>
       </div>
-      <div class="projects fade" id="projects">
-        <h2>My other Projects</h2>
-        <div class="pro-cards">
-          <div class="pro-card">
-            <img src="assets/svpn.webp" />
-            <div class="prc-text">
-              <h3><span class="highlight">SiliconVPN</span></h3>
-              <p>
-                SiliconVPN is a fictional VPN. Yes, it's not real, nor I'm
-                planning on making it real. This page is made for my practice,
-                and to demostrate my skills in landing pages. Hope you like it!
-              </p>
+    </section>
+
+    <!--PROJECTS-->
+    <section class="projects" id="projects" aria-labelledby="projects-heading">
+      <div class="section-inner">
+        <div class="section-header fade">
+          <div class="section-tag">My work</div>
+          <h2 id="projects-heading">Selected projects</h2>
+        </div>
+
+        <div class="projects-list">
+          <article class="project-item fade">
+            <div class="project-meta">
+              <span class="project-num">01</span>
+              <div class="project-tags">
+                <span>Landing Page</span>
+                <span>HTML/CSS/JS</span>
+              </div>
             </div>
-            <div class="prc-btn">
-              <a
-                href="https://github.com/MystiqDev/silicon-vpn-fictinonal"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="dy-btn"
-                ><span>GitHub</span></a
-              >
-              <a
-                href="https://mystiqdev.github.io/silicon-vpn-fictinonal"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="dy-btn"
-                ><span>Visit Site</span></a
-              >
+            <div class="project-content">
+              <div class="project-text">
+                <h3>SiliconVPN</h3>
+                <p>
+                  A polished landing page for a fictional VPN service. Built to
+                  demonstrate modern landing page design — bold hero section,
+                  feature breakdowns, pricing cards, and persuasive copy
+                  structure.
+                </p>
+                <div class="project-links">
+                  <a
+                    href="https://github.com/MystiqDev/silicon-vpn-fictinonal"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-link"
+                  >
+                    <ion-icon name="logo-github"></ion-icon> GitHub
+                  </a>
+                  <a
+                    href="https://mystiqdev.github.io/silicon-vpn-fictinonal"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-link primary"
+                  >
+                    <ion-icon name="open-outline"></ion-icon> Live Site
+                  </a>
+                </div>
+              </div>
+              <div class="project-img-wrap">
+                <img
+                  src="assets/svpn.webp"
+                  alt="SiliconVPN project screenshot"
+                  loading="lazy"
+                />
+                <div class="project-img-overlay" aria-hidden="true"></div>
+              </div>
             </div>
-          </div>
-          <div class="pro-card">
-            <img src="assets/LogansCafe.webp" />
-            <div class="prc-text">
-              <h3><span class="highlight">Logan'sCafe</span></h3>
-              <p>
-                Logan'sCafe is a fictional Cafe website, again, it's fictional.
-                This page is made to showcase my skills on building Business
-                sites. I hope you like it!
-              </p>
+          </article>
+
+          <article class="project-item fade delay-1 reverse">
+            <div class="project-meta">
+              <span class="project-num">02</span>
+              <div class="project-tags">
+                <span>Business Site</span>
+                <span>HTML/CSS/JS</span>
+              </div>
             </div>
-            <div class="prc-btn">
-              <a
-                href="https://github.com/MystiqDev/logan-s-cafe-fictional"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="dy-btn"
-                ><span>GitHub</span></a
-              >
-              <a
-                href="https://mystiqdev.github.io/logan-s-cafe-fictional/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="dy-btn"
-                ><span>Visit Site</span></a
-              >
+            <div class="project-content">
+              <div class="project-text">
+                <h3>Logan's Cafe</h3>
+                <p>
+                  A warm, atmospheric site for a fictional café. Showcases my
+                  approach to business websites — inviting aesthetic, clear menu
+                  presentation, and a layout that builds trust and drives foot
+                  traffic.
+                </p>
+                <div class="project-links">
+                  <a
+                    href="https://github.com/MystiqDev/logan-s-cafe-fictional"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-link"
+                  >
+                    <ion-icon name="logo-github"></ion-icon> GitHub
+                  </a>
+                  <a
+                    href="https://mystiqdev.github.io/logan-s-cafe-fictional/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-link primary"
+                  >
+                    <ion-icon name="open-outline"></ion-icon> Live Site
+                  </a>
+                </div>
+              </div>
+              <div class="project-img-wrap">
+                <img
+                  src="assets/LogansCafe.webp"
+                  alt="Logan's Cafe project screenshot"
+                  loading="lazy"
+                />
+                <div class="project-img-overlay" aria-hidden="true"></div>
+              </div>
             </div>
-          </div>
-          <div class="pro-card coming-soon">
-            <img src="assets/home-background4.webp" />
-            <div class="prc-text">
-              <h3><span>Coming Soon!</span></h3>
-              <p>This project is currently under development. Stay tuned.</p>
+          </article>
+
+          <article class="project-item project-coming-soon fade delay-2">
+            <div class="project-meta">
+              <span class="project-num">03</span>
+              <div class="project-tags">
+                <span>In Progress</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-text">
+                <h3>Coming Soon</h3>
+                <p>
+                  The next project is currently in development. Stay tuned —
+                  something new is on the way.
+                </p>
+                <div class="project-wip-badge">
+                  <span class="wip-dot" aria-hidden="true"></span>
+                  Under development
+                </div>
+              </div>
+              <div class="project-img-wrap coming-soon-img">
+                <img src="assets/home-background4.webp" alt="" loading="lazy" />
+                <div class="coming-soon-overlay" aria-hidden="true">
+                  <span>Soon™</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!--PROCESS-->
+    <section class="process" aria-labelledby="process-heading">
+      <div class="section-inner">
+        <div class="section-header fade">
+          <div class="section-tag">How it works</div>
+          <h2 id="process-heading">My process</h2>
+        </div>
+
+        <div class="process-track">
+          <div class="process-line" aria-hidden="true"></div>
+          <div class="process-steps">
+            <div class="process-step fade">
+              <div class="ps-num" aria-hidden="true">01</div>
+              <div class="ps-body">
+                <h3>Discovery &amp; Brief</h3>
+                <p>
+                  We discuss your goals, brand, and what you need. You share
+                  content, references, and preferences — I ask the right
+                  questions to fully understand your vision.
+                </p>
+              </div>
+            </div>
+            <div class="process-step fade delay-1">
+              <div class="ps-num" aria-hidden="true">02</div>
+              <div class="ps-body">
+                <h3>Design &amp; Build</h3>
+                <p>
+                  I craft a clean, responsive layout tailored to your brand.
+                  Every detail is considered — typography, spacing, animations,
+                  and mobile experience.
+                </p>
+              </div>
+            </div>
+            <div class="process-step fade delay-2">
+              <div class="ps-num" aria-hidden="true">03</div>
+              <div class="ps-body">
+                <h3>Review &amp; Deliver</h3>
+                <p>
+                  You review the result, request any tweaks, and once you're
+                  satisfied — I hand over clean, commented code ready for
+                  deployment. Revisions always included.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="faq-section fade" id="faq">
-        <h2>Frequently Asked Questions</h2>
-        <div class="faq-list">
+    </section>
+
+    <!--FAQ-->
+    <section class="faq" id="faq" aria-labelledby="faq-heading">
+      <div class="section-inner faq-inner">
+        <div class="faq-left fade">
+          <div class="section-tag">Questions</div>
+          <h2 id="faq-heading">Frequently asked</h2>
+          <p class="faq-sub">
+            Can't find your answer? <a href="#contact">Just ask me directly.</a>
+          </p>
+        </div>
+
+        <div class="faq-right fade delay-1">
           <div class="faq-item">
             <button class="faq-question" type="button" aria-expanded="false">
               <span>What do you need from me to get started?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>Please provide:</p>
-              <ul>
-                <li>Your content (text &amp; images)</li>
-                <li>Logo (if you have one)</li>
-                <li>Color preferences (optional)</li>
-                <li>Example websites you like (optional)</li>
-              </ul>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">
-              <span>Will my website be mobile responsive?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
+              <span class="faq-icon" aria-hidden="true"></span>
             </button>
             <div class="faq-answer">
               <p>
-                Yes. Your website will be fully responsive and optimized for
+                Please share your content (text &amp; images), your logo if you
+                have one, any colour preferences, and a few example websites you
+                like. That's everything I need to begin.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Will my website be mobile responsive?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Absolutely. Every site I build is fully responsive and tested on
                 mobile, tablet, and desktop devices.
               </p>
             </div>
           </div>
+
           <div class="faq-item">
             <button class="faq-question" type="button" aria-expanded="false">
-              <span>Do you provide hosting or domain?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
+              <span>Do you provide hosting or a domain?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
             </button>
             <div class="faq-answer">
               <p>
-                No. You will need to purchase your own hosting and domain. I can
-                guide you through the process if needed.
+                No — you'll need your own hosting and domain. I can guide you
+                through the setup process if you're not sure where to start.
               </p>
             </div>
           </div>
+
           <div class="faq-item">
             <button class="faq-question" type="button" aria-expanded="false">
               <span>Can you add more pages later?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
+              <span class="faq-icon" aria-hidden="true"></span>
             </button>
             <div class="faq-answer">
-              <p>Yes. Additional pages can be added as an extra service.</p>
+              <p>
+                Yes. Additional pages are available as an extra service — just
+                reach out when you're ready to expand.
+              </p>
             </div>
           </div>
+
           <div class="faq-item">
             <button class="faq-question" type="button" aria-expanded="false">
               <span>Do you build e-commerce websites?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
+              <span class="faq-icon" aria-hidden="true"></span>
             </button>
             <div class="faq-answer">
               <p>
-                Currently, I focus on static and business websites built with
-                HTML &amp; CSS. If you have special requirements, please contact
-                me first.
+                I currently focus on static and business websites. If you have
+                specific e-commerce requirements, contact me first and we can
+                discuss what's possible.
               </p>
             </div>
           </div>
+
           <div class="faq-item">
             <button class="faq-question" type="button" aria-expanded="false">
               <span>Can we discuss before placing an order?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
+              <span class="faq-icon" aria-hidden="true"></span>
             </button>
             <div class="faq-answer">
               <p>
-                Yes. I recommend messaging me first to discuss your requirements
-                and avoid misunderstandings.
+                Yes — I recommend it. Messaging first helps us align on your
+                requirements, avoid misunderstandings, and makes the whole
+                process smoother for both sides.
               </p>
             </div>
           </div>
         </div>
       </div>
-      <div class="contact-section fade" id="contact">
-        <h2>Get in Touch!</h2>
-        <div class="social-links">
-          <a
-            href="https://www.fiverr.com/s/DBbLZDo"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="assets/fiverr.webp" alt="Fiverr" />
-          </a>
-          <a
-            href="https://contra.com/mystique72_jug14sx9?referralExperimentNid=DEFAULT_REFERRAL_PROGRAM&amp;referrerUsername=mystique72_jug14sx9"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="assets/contra.webp" alt="Contra" />
-          </a>
-          <a
-            href="https://www.guru.com/freelancers/shahab-m"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="assets/guru.webp" alt="Guru" />
-          </a>
+    </section>
+
+    <!--CONTACT -->
+    <section class="contact" id="contact" aria-labelledby="contact-heading">
+      <div class="contact-glow" aria-hidden="true"></div>
+      <div class="section-inner contact-inner">
+        <div class="contact-left fade">
+          <div class="section-tag">Let's work together</div>
+          <h2 id="contact-heading">Start a conversation</h2>
+          <p>
+            Have a project in mind? I'd love to hear about it. Fill out the form
+            or find me on a freelance platform below.
+          </p>
+
+          <div class="platform-links">
+            <a
+              href="https://www.fiverr.com/s/DBbLZDo"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="platform-link"
+            >
+              <img
+                src="assets/fiverr.webp"
+                alt="Fiverr"
+                width="32"
+                height="32"
+              />
+              <span>Fiverr</span>
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </a>
+            <a
+              href="https://contra.com/mystique72_jug14sx9?referralExperimentNid=DEFAULT_REFERRAL_PROGRAM&referrerUsername=mystique72_jug14sx9"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="platform-link"
+            >
+              <img
+                src="assets/contra.webp"
+                alt="Contra"
+                width="32"
+                height="32"
+              />
+              <span>Contra</span>
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </a>
+            <a
+              href="https://www.guru.com/freelancers/shahab-m"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="platform-link"
+            >
+              <img src="assets/guru.webp" alt="Guru" width="32" height="32" />
+              <span>Guru</span>
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </a>
+            <a
+              href="https://www.upwork.com/freelancers/~01f1c8b9c3e2a7b9e5"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="platform-link"
+            >
+              <img
+                src="assets/upwork.webp"
+                alt="Upwork"
+                width="32"
+                height="32"
+              />
+              <span>Upwork</span>
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </a>
+          </div>
         </div>
-        <p class="contact-divider">or</p>
-        <form
-          class="contact-form"
-          action="https://formsubmit.co/ajax/mystique20084589@gmail.com"
-          method="post"
-        >
-          <input type="hidden" name="_subject" value="New message from MystiqDev website" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="text" name="_honey" style="display: none" tabindex="-1" autocomplete="off" />
-          <label class="field" for="contact-subject">
-            <span>Subject</span>
+
+        <div class="contact-right fade delay-1">
+          <form
+            class="contact-form"
+            action="https://formsubmit.co/ajax/mystique20084589@gmail.com"
+            method="post"
+            novalidate
+          >
             <input
-              id="contact-subject"
-              name="subject"
+              type="hidden"
+              name="_subject"
+              value="New message from MystiqDev website"
+            />
+            <input type="hidden" name="_captcha" value="false" />
+            <input
               type="text"
-              placeholder="Subject"
-              required
+              name="_honey"
+              style="display: none"
+              tabindex="-1"
+              autocomplete="off"
             />
-          </label>
-          <label class="field" for="contact-email">
-            <span>Email Address</span>
-            <input
-              id="contact-email"
-              name="email"
-              type="email"
-              placeholder="you@example.com"
-              required
-            />
-          </label>
-          <label class="field" for="contact-message">
-            <span>The message</span>
-            <textarea
-              id="contact-message"
-              name="message"
-              rows="5"
-              placeholder="Write your message"
-              required
-            ></textarea>
-          </label>
-          <button type="submit" class="dy-btn"><span>Send</span></button>
-          <p class="form-status" aria-live="polite"></p>
-        </form>
+
+            <div class="form-row">
+              <label class="form-field" for="contact-subject">
+                <span class="form-label">Subject</span>
+                <input
+                  id="contact-subject"
+                  name="subject"
+                  type="text"
+                  placeholder="What's this about?"
+                  required
+                />
+              </label>
+            </div>
+
+            <div class="form-row">
+              <label class="form-field" for="contact-email">
+                <span class="form-label">Email Address</span>
+                <input
+                  id="contact-email"
+                  name="email"
+                  type="email"
+                  placeholder="you@example.com"
+                  required
+                />
+              </label>
+            </div>
+
+            <div class="form-row">
+              <label class="form-field" for="contact-message">
+                <span class="form-label">Message</span>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  rows="5"
+                  placeholder="Tell me about your project..."
+                  required
+                ></textarea>
+              </label>
+            </div>
+
+            <button type="submit" class="btn-primary form-submit">
+              <span>Send message</span>
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </button>
+            <p class="form-status" aria-live="polite"></p>
+          </form>
+        </div>
       </div>
     </section>
-    <footer class="fade">
-      <div class="footer-content">
-        <div class="copyright">
-          <h2>Copyright</h2>
-          <p>&copy; 2026 MystiqDev. All rights reserved.</p>
+
+    <!--FOOTER-->
+    <footer class="footer" id="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="logo footer-logo" aria-label="MystiqDev">
+            <img src="assets/logo-colored.webp" alt="" width="32" height="32" />
+            <span class="logo-name">MystiqDev</span>
+          </a>
+          <p class="footer-tagline">
+            Front-end developer from Oman crafting clean, fast, and beautiful
+            web experiences.
+          </p>
+          <div class="footer-socials">
+            <a
+              href="https://x.com/my_st45"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Twitter/X"
+              ><ion-icon name="logo-twitter"></ion-icon
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/mystique-x-9572b93a7/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              ><ion-icon name="logo-linkedin"></ion-icon
+            ></a>
+            <a
+              href="https://www.instagram.com/mysti_qdev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              ><ion-icon name="logo-instagram"></ion-icon
+            ></a>
+            <a
+              href="https://github.com/MystiqDev"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              ><ion-icon name="logo-github"></ion-icon
+            ></a>
+          </div>
         </div>
-        <div class="credits" id="credits">
-          <h2>Credits</h2>
-          <ul>
-            <li>
-              <a href="https://www.flaticon.com/free-icons/ux" title="ux icons"
-                >Ux icons created by Tanah Basah - Flaticon</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://www.flaticon.com/free-icons/stopwatch"
-                title="stopwatch icons"
-                >Stopwatch icons created by fjstudio - Flaticon</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://www.flaticon.com/free-icon/responsive_11442002?term=responsive&page=1&position=12&origin=search&related_id=11442002"
-                title="responsive icon"
-                >Responsive icon created by Saepul Nahwan - Flaticon</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://www.flaticon.com/free-icons/settings"
-                title="settings icons"
-                >Settings icons created by Pixel perfect - Flaticon</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://www.flaticon.com/free-icons/bag"
-                title="bag icons"
-                >Bag icons created by Dimitry Miroliubov - Flaticon</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://www.flaticon.com/free-icons/landing-page"
-                title="landing page icons"
-                >Landing page icons created by deemakdaksina - Flaticon</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://www.flaticon.com/free-icons/folder"
-                title="folder icons"
-                >Folder icons created by Tanah Basah - Flaticon</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://www.flaticon.com/free-icons/dashboard"
-                title="dashboard icons"
-                >Dashboard icons created by Pixel perfect - Flaticon</a
-              >
-            </li>
-          </ul>
+
+        <div class="footer-col">
+          <span class="footer-col-title">Navigate</span>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#services">Services</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
         </div>
-        <div class="socials">
-          <h2>Follow Me On</h2>
-          <ul>
-            <li>
-              <a
-                href="https://x.com/my_st45"
-                target="_blank"
-                rel="noopener noreferrer"
-                ><img src="assets/twitter.webp" />
-                <img src="assets/twitter-hover.webp"
-              /></a>
-            </li>
-            <li>
-              <a
-                href="https://www.linkedin.com/in/mystique-x-9572b93a7/"
-                target="_blank"
-                rel="noopener noreferrer"
-                ><img src="assets/linkedin.webp" /><img
-                  src="assets/linkedin-hover.webp"
-              /></a>
-            </li>
-            <li>
-              <a
-                href="https://www.instagram.com/mysti_qdev/"
-                target="_blank"
-                rel="noopener noreferrer"
-                ><img src="assets/instagram.webp" /><img
-                  src="assets/instagram-hover.webp"
-              /></a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/MystiqDev"
-                target="_blank"
-                rel="noopener noreferrer"
-                ><img src="assets/github.webp" /><img
-                  src="assets/github-hover.webp"
-              /></a>
-            </li>
-          </ul>
+
+        <div class="footer-col" id="credits">
+          <span class="footer-col-title">Credits</span>
+          <a href="https://www.flaticon.com/free-icons/ux" title="ux icons"
+            >UX icons — Tanah Basah</a
+          >
+          <a
+            href="https://www.flaticon.com/free-icons/stopwatch"
+            title="stopwatch icons"
+            >Stopwatch — fjstudio</a
+          >
+          <a
+            href="https://www.flaticon.com/free-icon/responsive_11442002"
+            title="responsive icon"
+            >Responsive — Saepul Nahwan</a
+          >
+          <a
+            href="https://www.flaticon.com/free-icons/settings"
+            title="settings icons"
+            >Settings — Pixel perfect</a
+          >
+          <a
+            href="https://www.flaticon.com/free-icons/landing-page"
+            title="landing page icons"
+            >Landing page — deemakdaksina</a
+          >
+          <a
+            href="https://www.flaticon.com/free-icons/folder"
+            title="folder icons"
+            >Folder — Tanah Basah</a
+          >
         </div>
       </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 MystiqDev. All rights reserved.</p>
+        <p class="footer-built">Built with HTML, CSS &amp; Vanilla JS</p>
+      </div>
     </footer>
+
+    <!-- Back to top -->
+    <button
+      class="back-to-top"
+      id="backToTop"
+      type="button"
+      aria-label="Back to top"
+    >
+      <ion-icon name="arrow-up-outline"></ion-icon>
+    </button>
   </body>
 </html>
