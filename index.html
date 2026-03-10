@@ -3,1218 +3,897 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SiliconVPN | Secure. Fast. Private.</title>
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+    <title>MystiqDev | Front-End Developer</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="script.js" defer></script>
   </head>
 
   <body>
-    <!--NAVBAR-->
-    <header class="navbar" id="navbar">
-      <div class="navbar-inner">
-        <a href="#" class="navbar-logo" aria-label="SiliconVPN home">
-          <img src="assets/logo.png" alt="SiliconVPN logo" />
-          <span class="logo-text">SiliconVPN</span>
+    <!-- Scroll progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Cursor glow -->
+    <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+    <!--HEADER-->
+    <header id="header">
+      <div class="header-inner">
+        <a href="index.html" class="logo" aria-label="MystiqDev home">
+          <img src="assets/logo-colored.webp" alt="" width="38" height="38" />
+          <span class="logo-name">MystiqDev</span>
         </a>
-        <nav class="navbar-links" aria-label="Main navigation">
-          <a href="#benefits">Benefits</a>
-          <a href="#how-it-works">How It Works</a>
-          <a href="#pricing">Pricing</a>
+
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#services">Services</a>
           <a href="#faq">FAQ</a>
-          <a href="#contact">Contact</a>
         </nav>
-        <div class="navbar-cta">
-          <a href="#pricing" class="btn btn-primary">Get VPN</a>
-        </div>
+
+        <a href="#contact" class="btn-hire">Hire me</a>
+
         <button
           class="hamburger"
           id="hamburger"
           aria-label="Open menu"
           aria-expanded="false"
+          aria-controls="mobile-menu"
         >
           <span></span><span></span><span></span>
         </button>
       </div>
     </header>
 
-    <div class="mobile-overlay" id="mobile-overlay"></div>
-    <aside class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
-      <button class="mobile-close" id="mobile-close" aria-label="Close menu">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 -960 960 960"
-          width="24"
-          height="24"
-          fill="currentColor"
-        >
-          <path
-            d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
-          />
-        </svg>
+    <!-- Mobile nav overlay -->
+    <div
+      class="mobile-menu"
+      id="mobile-menu"
+      aria-hidden="true"
+      role="dialog"
+      aria-label="Mobile navigation"
+    >
+      <button
+        class="mobile-menu-close"
+        id="mobile-menu-close"
+        aria-label="Close menu"
+      >
+        &times;
       </button>
-      <a href="#" class="mobile-logo">
-        <img src="assets/logo.png" alt="" /><span class="logo-text"
-          >SiliconVPN</span
-        >
-      </a>
-      <nav class="mobile-nav">
-        <a href="#benefits">Benefits</a>
-        <a href="#how-it-works">How It Works</a>
-        <a href="#pricing">Pricing</a>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#services">Services</a>
         <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
+        <a href="#contact" class="btn-hire mobile-hire">Hire me</a>
       </nav>
-      <a href="#pricing" class="btn btn-primary mobile-nav-cta">Get VPN</a>
-    </aside>
-
-    <!-- ═══════════════════════════════════════════════
-       HERO
-  ═══════════════════════════════════════════════ -->
-    <section class="hero">
-      <div class="hero-bg">
-        <div class="hero-blob blob-1"></div>
-        <div class="hero-blob blob-2"></div>
-        <div class="hero-dots"></div>
+      <div class="mobile-menu-socials">
+        <a
+          href="https://x.com/my_st45"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Twitter/X"
+          ><ion-icon name="logo-twitter"></ion-icon
+        ></a>
+        <a
+          href="https://www.linkedin.com/in/mystique-x-9572b93a7/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          ><ion-icon name="logo-linkedin"></ion-icon
+        ></a>
+        <a
+          href="https://www.instagram.com/mysti_qdev/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          ><ion-icon name="logo-instagram"></ion-icon
+        ></a>
+        <a
+          href="https://github.com/MystiqDev"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+          ><ion-icon name="logo-github"></ion-icon
+        ></a>
       </div>
+    </div>
+    <div
+      class="mobile-menu-backdrop"
+      id="mobile-menu-backdrop"
+      aria-hidden="true"
+    ></div>
+
+    <!--HERO-->
+    <section class="hero" aria-label="Introduction">
+      <div class="hero-bg-grid" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+
       <div class="hero-inner">
-        <div class="hero-text fade-in">
-          <div class="hero-badge">
-            <span class="badge-dot"></span>
-            <span>Military-grade encryption · No-log policy</span>
-          </div>
-          <h1>
-            Access <span class="text-gradient">The World.</span><br />Your Way.
-          </h1>
-          <p class="hero-sub">
-            SiliconVPN gives you private browsing, fast global routing, and
-            one-tap protection across all your devices. Stay encrypted. Stay
-            free.
+        <div class="hero-label fade-up">Available for freelance work</div>
+
+        <h1 class="hero-title fade-up delay-1">
+          <span class="hero-title-line">Front-End</span>
+          <span class="hero-title-line hero-name">MystiqDev</span>
+          <span class="hero-title-line">Developer</span>
+        </h1>
+
+        <p class="hero-sub fade-up delay-2">
+          I'm <strong>MystiqDev</strong> — I build clean, fast, and beautifully
+          interactive websites using pure HTML, CSS &amp; JavaScript. No
+          frameworks, no bloat — just craftsmanship.
+        </p>
+
+        <div class="hero-actions fade-up delay-3">
+          <a href="#contact" class="btn-primary">Start a project</a>
+          <a href="#projects" class="btn-ghost">See my work</a>
+        </div>
+
+        <div class="hero-socials fade-up delay-4" aria-label="Social links">
+          <a
+            href="https://x.com/my_st45"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Twitter"
+          >
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/mystique-x-9572b93a7/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a>
+          <a
+            href="https://www.instagram.com/mysti_qdev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+          <a
+            href="https://github.com/MystiqDev"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <ion-icon name="logo-github"></ion-icon>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-stat-strip fade-up delay-4" aria-label="Key stats">
+        <div class="stat-item">
+          <span class="stat-num">2+</span>
+          <span class="stat-label">Years of practice</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num">3+</span>
+          <span class="stat-label">Projects completed</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num">100%</span>
+          <span class="stat-label">Vanilla coding</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num">Fast</span>
+          <span class="stat-label">Delivery guaranteed</span>
+        </div>
+      </div>
+    </section>
+
+    <!--ABOUT-->
+    <section class="about" id="about" aria-labelledby="about-heading">
+      <div class="section-inner about-inner">
+        <div class="about-text fade">
+          <div class="section-tag">Who I am</div>
+          <h2 id="about-heading">
+            A developer who<br /><em>cares about details</em>
+          </h2>
+          <p>
+            Hi, I'm Mysti — a front-end developer based in Oman. I specialize in
+            clean, responsive websites that load fast, look sharp on every
+            device, and feel genuinely crafted rather than assembled.
           </p>
-          <div class="hero-btns">
-            <a href="#pricing" class="btn btn-primary btn-lg"
-              >Get Started — It's Free</a
+          <p>
+            I build with pure HTML, CSS, and Vanilla JavaScript. No frameworks
+            yet — just lean, efficient code that does exactly what it needs to
+            without any unnecessary bloat.
+          </p>
+          <div class="about-badges">
+            <span class="badge">Clean code</span>
+            <span class="badge">Vanilla coding</span>
+            <span class="badge">Fast delivery</span>
+            <span class="badge">Mobile-friendly</span>
+          </div>
+        </div>
+
+        <div class="about-visual fade delay-1">
+          <div class="tech-card">
+            <div class="tech-card-header">Tech Stack</div>
+            <div class="tech-grid">
+              <div class="tech-item">
+                <img src="assets/html.webp" alt="HTML5" />
+                <span>HTML5</span>
+              </div>
+              <div class="tech-item">
+                <img src="assets/css.webp" alt="CSS3" />
+                <span>CSS3</span>
+              </div>
+              <div class="tech-item">
+                <img src="assets/js.webp" alt="JavaScript" />
+                <span>JavaScript</span>
+              </div>
+              <div class="tech-item">
+                <img src="assets/git.webp" alt="Git" />
+                <span>Git</span>
+              </div>
+              <div class="tech-item">
+                <img src="assets/vscode.webp" alt="VS Code" />
+                <span>VS Code</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="exp-card fade delay-2">
+            <div class="exp-bar">
+              <span class="exp-bar-label">HTML &amp; CSS</span>
+              <div class="exp-bar-track">
+                <div class="exp-bar-fill" style="--w: 92%"></div>
+              </div>
+              <span class="exp-bar-pct">92%</span>
+            </div>
+            <div class="exp-bar">
+              <span class="exp-bar-label">JavaScript</span>
+              <div class="exp-bar-track">
+                <div class="exp-bar-fill" style="--w: 70%"></div>
+              </div>
+              <span class="exp-bar-pct">70%</span>
+            </div>
+            <div class="exp-bar">
+              <span class="exp-bar-label">Responsive Design</span>
+              <div class="exp-bar-track">
+                <div class="exp-bar-fill" style="--w: 88%"></div>
+              </div>
+              <span class="exp-bar-pct">88%</span>
+            </div>
+            <div class="exp-bar">
+              <span class="exp-bar-label">UI/UX Sensibility</span>
+              <div class="exp-bar-track">
+                <div class="exp-bar-fill" style="--w: 80%"></div>
+              </div>
+              <span class="exp-bar-pct">80%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--SERVICES-->
+    <section class="services" id="services" aria-labelledby="services-heading">
+      <div class="section-inner">
+        <div class="section-header fade">
+          <div class="section-tag">What I do</div>
+          <h2 id="services-heading">Services I provide</h2>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card fade">
+            <div class="service-icon" aria-hidden="true">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+            <h3>Responsive Design</h3>
+            <p>
+              Websites that work flawlessly on every screen — from phones to
+              ultrawide monitors. Fluid layouts, adaptive components, and
+              mobile-first thinking.
+            </p>
+            <div class="service-tag">All devices</div>
+          </div>
+
+          <div class="service-card fade delay-1">
+            <div class="service-icon" aria-hidden="true">
+              <ion-icon name="flash-outline"></ion-icon>
+            </div>
+            <h3>Quick Development</h3>
+            <p>
+              Fast, efficient delivery without cutting corners. I move quickly
+              through the build process while keeping every detail polished and
+              every line intentional.
+            </p>
+            <div class="service-tag">On schedule</div>
+          </div>
+
+          <div class="service-card fade delay-2">
+            <div class="service-icon" aria-hidden="true">
+              <ion-icon name="sparkles-outline"></ion-icon>
+            </div>
+            <h3>Interactive Pages</h3>
+            <p>
+              Smooth animations, hover effects, and micro-interactions that give
+              your site personality. Nothing gratuitous — every motion earns its
+              place.
+            </p>
+            <div class="service-tag">Polished UX</div>
+          </div>
+
+          <div class="service-card fade delay-3">
+            <div class="service-icon" aria-hidden="true">
+              <ion-icon name="code-slash-outline"></ion-icon>
+            </div>
+            <h3>Vanilla Coding</h3>
+            <p>
+              Pure HTML, CSS, and JavaScript — no React, no bloat. Lean,
+              fast-loading sites with clean code you can actually read and
+              maintain long-term.
+            </p>
+            <div class="service-tag">No frameworks</div>
+          </div>
+
+          <div class="service-card fade delay-1">
+            <div class="service-icon" aria-hidden="true">
+              <ion-icon name="layers-outline"></ion-icon>
+            </div>
+            <h3>Landing Pages</h3>
+            <p>
+              Conversion-focused landing pages that grab attention, guide
+              visitors through your value proposition, and compel them to take
+              action.
+            </p>
+            <div class="service-tag">High conversion</div>
+          </div>
+
+          <div class="service-card fade delay-2">
+            <div class="service-icon" aria-hidden="true">
+              <ion-icon name="briefcase-outline"></ion-icon>
+            </div>
+            <h3>Business Sites</h3>
+            <p>
+              Professional websites that build credibility, showcase your
+              services clearly, and make your brand look ready for real clients
+              and serious business.
+            </p>
+            <div class="service-tag">Brand presence</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--PROJECTS-->
+    <section class="projects" id="projects" aria-labelledby="projects-heading">
+      <div class="section-inner">
+        <div class="section-header fade">
+          <div class="section-tag">My work</div>
+          <h2 id="projects-heading">Selected projects</h2>
+        </div>
+
+        <div class="projects-list">
+          <article class="project-item fade">
+            <div class="project-meta">
+              <span class="project-num">01</span>
+              <div class="project-tags">
+                <span>Landing Page</span>
+                <span>HTML/CSS/JS</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-text">
+                <h3>SiliconVPN</h3>
+                <p>
+                  A polished landing page for a fictional VPN service. Built to
+                  demonstrate modern landing page design — bold hero section,
+                  feature breakdowns, pricing cards, and persuasive copy
+                  structure.
+                </p>
+                <div class="project-links">
+                  <a
+                    href="https://github.com/MystiqDev/silicon-vpn-fictinonal"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-link"
+                  >
+                    <ion-icon name="logo-github"></ion-icon> GitHub
+                  </a>
+                  <a
+                    href="https://mystiqdev.github.io/silicon-vpn-fictinonal"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-link primary"
+                  >
+                    <ion-icon name="open-outline"></ion-icon> Live Site
+                  </a>
+                </div>
+              </div>
+              <div class="project-img-wrap">
+                <img
+                  src="assets/svpn.webp"
+                  alt="SiliconVPN project screenshot"
+                  loading="lazy"
+                />
+                <div class="project-img-overlay" aria-hidden="true"></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-item fade delay-1 reverse">
+            <div class="project-meta">
+              <span class="project-num">02</span>
+              <div class="project-tags">
+                <span>Business Site</span>
+                <span>HTML/CSS/JS</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-text">
+                <h3>Logan's Cafe</h3>
+                <p>
+                  A warm, atmospheric site for a fictional café. Showcases my
+                  approach to business websites — inviting aesthetic, clear menu
+                  presentation, and a layout that builds trust and drives foot
+                  traffic.
+                </p>
+                <div class="project-links">
+                  <a
+                    href="https://github.com/MystiqDev/logan-s-cafe-fictional"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-link"
+                  >
+                    <ion-icon name="logo-github"></ion-icon> GitHub
+                  </a>
+                  <a
+                    href="https://mystiqdev.github.io/logan-s-cafe-fictional/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-link primary"
+                  >
+                    <ion-icon name="open-outline"></ion-icon> Live Site
+                  </a>
+                </div>
+              </div>
+              <div class="project-img-wrap">
+                <img
+                  src="assets/LogansCafe.webp"
+                  alt="Logan's Cafe project screenshot"
+                  loading="lazy"
+                />
+                <div class="project-img-overlay" aria-hidden="true"></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-item project-coming-soon fade delay-2">
+            <div class="project-meta">
+              <span class="project-num">03</span>
+              <div class="project-tags">
+                <span>In Progress</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-text">
+                <h3>Coming Soon</h3>
+                <p>
+                  The next project is currently in development. Stay tuned —
+                  something new is on the way.
+                </p>
+                <div class="project-wip-badge">
+                  <span class="wip-dot" aria-hidden="true"></span>
+                  Under development
+                </div>
+              </div>
+              <div class="project-img-wrap coming-soon-img">
+                <img src="assets/home-background4.webp" alt="" loading="lazy" />
+                <div class="coming-soon-overlay" aria-hidden="true">
+                  <span>Soon™</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!--PROCESS-->
+    <section class="process" aria-labelledby="process-heading">
+      <div class="section-inner">
+        <div class="section-header fade">
+          <div class="section-tag">How it works</div>
+          <h2 id="process-heading">My process</h2>
+        </div>
+
+        <div class="process-track">
+          <div class="process-line" aria-hidden="true"></div>
+          <div class="process-steps">
+            <div class="process-step fade">
+              <div class="ps-num" aria-hidden="true">01</div>
+              <div class="ps-body">
+                <h3>Discovery &amp; Brief</h3>
+                <p>
+                  We discuss your goals, brand, and what you need. You share
+                  content, references, and preferences — I ask the right
+                  questions to fully understand your vision.
+                </p>
+              </div>
+            </div>
+            <div class="process-step fade delay-1">
+              <div class="ps-num" aria-hidden="true">02</div>
+              <div class="ps-body">
+                <h3>Design &amp; Build</h3>
+                <p>
+                  I craft a clean, responsive layout tailored to your brand.
+                  Every detail is considered — typography, spacing, animations,
+                  and mobile experience.
+                </p>
+              </div>
+            </div>
+            <div class="process-step fade delay-2">
+              <div class="ps-num" aria-hidden="true">03</div>
+              <div class="ps-body">
+                <h3>Review &amp; Deliver</h3>
+                <p>
+                  You review the result, request any tweaks, and once you're
+                  satisfied — I hand over clean, commented code ready for
+                  deployment. Revisions always included.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--FAQ-->
+    <section class="faq" id="faq" aria-labelledby="faq-heading">
+      <div class="section-inner faq-inner">
+        <div class="faq-left fade">
+          <div class="section-tag">Questions</div>
+          <h2 id="faq-heading">Frequently asked</h2>
+          <p class="faq-sub">
+            Can't find your answer? <a href="#contact">Just ask me directly.</a>
+          </p>
+        </div>
+
+        <div class="faq-right fade delay-1">
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>What do you need from me to get started?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Please share your content (text &amp; images), your logo if you
+                have one, any colour preferences, and a few example websites you
+                like. That's everything I need to begin.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Will my website be mobile responsive?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Absolutely. Every site I build is fully responsive and tested on
+                mobile, tablet, and desktop devices.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Do you provide hosting or a domain?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                No — you'll need your own hosting and domain. I can guide you
+                through the setup process if you're not sure where to start.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Can you add more pages later?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Yes. Additional pages are available as an extra service — just
+                reach out when you're ready to expand.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Do you build e-commerce websites?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                I currently focus on static and business websites. If you have
+                specific e-commerce requirements, contact me first and we can
+                discuss what's possible.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Can we discuss before placing an order?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Yes — I recommend it. Messaging first helps us align on your
+                requirements, avoid misunderstandings, and makes the whole
+                process smoother for both sides.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--CONTACT -->
+    <section class="contact" id="contact" aria-labelledby="contact-heading">
+      <div class="contact-glow" aria-hidden="true"></div>
+      <div class="section-inner contact-inner">
+        <div class="contact-left fade">
+          <div class="section-tag">Let's work together</div>
+          <h2 id="contact-heading">Start a conversation</h2>
+          <p>
+            Have a project in mind? I'd love to hear about it. Fill out the form
+            or find me on a freelance platform below.
+          </p>
+
+          <div class="platform-links">
+            <a
+              href="https://www.fiverr.com/s/DBbLZDo"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="platform-link"
             >
-            <a href="#benefits" class="btn btn-ghost btn-lg">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                width="16"
-                height="16"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 8v4m0 4h.01" />
-              </svg>
-              Learn More
+              <img
+                src="assets/fiverr.webp"
+                alt="Fiverr"
+                width="32"
+                height="32"
+              />
+              <span>Fiverr</span>
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </a>
+            <a
+              href="https://contra.com/mystique72_jug14sx9?referralExperimentNid=DEFAULT_REFERRAL_PROGRAM&referrerUsername=mystique72_jug14sx9"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="platform-link"
+            >
+              <img
+                src="assets/contra.webp"
+                alt="Contra"
+                width="32"
+                height="32"
+              />
+              <span>Contra</span>
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </a>
+            <a
+              href="https://www.guru.com/freelancers/shahab-m"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="platform-link"
+            >
+              <img src="assets/guru.webp" alt="Guru" width="32" height="32" />
+              <span>Guru</span>
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </a>
+            <a
+              href="https://www.upwork.com/freelancers/~01f1c8b9c3e2a7b9e5"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="platform-link"
+            >
+              <img
+                src="assets/upwork.webp"
+                alt="Upwork"
+                width="32"
+                height="32"
+              />
+              <span>Upwork</span>
+              <ion-icon name="arrow-forward-outline"></ion-icon>
             </a>
           </div>
-          <div class="hero-stats">
-            <div class="hero-stat"><strong>98%</strong><span>Uptime</span></div>
-            <div class="stat-sep"></div>
-            <div class="hero-stat">
-              <strong>90+</strong><span>Countries</span>
-            </div>
-            <div class="stat-sep"></div>
-            <div class="hero-stat">
-              <strong>256-bit</strong><span>Encryption</span>
-            </div>
-            <div class="stat-sep"></div>
-            <div class="hero-stat"><strong>5★</strong><span>Rating</span></div>
-          </div>
         </div>
-        <div class="hero-visual fade-in fade-delay">
-          <div class="hero-img-glow"></div>
-          <img
-            src="assets/image.png"
-            alt="SiliconVPN app preview"
-            class="hero-img"
-          />
-        </div>
-      </div>
-      <p class="disclaimer">
-        Disclaimer: SiliconVPN is a concept project for portfolio practice.
-        Features, plans, and pricing are demo content.
-      </p>
-      <div class="wave-divider">
-        <svg
-          viewBox="0 0 1440 80"
-          preserveAspectRatio="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M0,40 C240,80 480,0 720,45 C960,90 1200,10 1440,45 L1440,80 L0,80 Z"
-            fill="var(--surface)"
-          />
-        </svg>
-      </div>
-    </section>
 
-    <!-- ═══════════════════════════════════════════════
-       BENEFITS
-  ═══════════════════════════════════════════════ -->
-    <section class="section benefits-section" id="benefits">
-      <div class="container">
-        <div class="section-head fade-up">
-          <span class="label-tag">Why SiliconVPN</span>
-          <h2>Built for everyday protection</h2>
-          <p>
-            Private browsing, speed-optimised routing, and simple onboarding —
-            protection that's easy to keep on, every day.
-          </p>
-        </div>
-        <div class="benefits-grid">
-          <article class="benefit-card fade-up" style="--d: 0s">
-            <div class="bcard-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
-            <h3>Fast Connection</h3>
-            <p>
-              Optimized routing keeps latency low and page loads quick, even on
-              crowded public networks and long-distance connections.
-            </p>
-          </article>
-          <article class="benefit-card fade-up" style="--d: 0.1s">
-            <div class="bcard-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-              >
-                <rect x="3" y="11" width="18" height="11" rx="2" />
-                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-              </svg>
-            </div>
-            <h3>Secure Encryption</h3>
-            <p>
-              Modern encryption standards protect your traffic from snooping
-              while keeping performance reliable for daily browsing and work.
-            </p>
-          </article>
-          <article class="benefit-card fade-up" style="--d: 0.2s">
-            <div class="bcard-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <path
-                  d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+        <div class="contact-right fade delay-1">
+          <form
+            class="contact-form"
+            action="https://formsubmit.co/ajax/mystique20084589@gmail.com"
+            method="post"
+            novalidate
+          >
+            <input
+              type="hidden"
+              name="_subject"
+              value="New message from MystiqDev website"
+            />
+            <input type="hidden" name="_captcha" value="false" />
+            <input
+              type="text"
+              name="_honey"
+              style="display: none"
+              tabindex="-1"
+              autocomplete="off"
+            />
+
+            <div class="form-row">
+              <label class="form-field" for="contact-subject">
+                <span class="form-label">Subject</span>
+                <input
+                  id="contact-subject"
+                  name="subject"
+                  type="text"
+                  placeholder="What's this about?"
+                  required
                 />
-              </svg>
+              </label>
             </div>
-            <h3>Global Servers</h3>
-            <p>
-              Connect through 90+ countries for better speed and access to
-              services with less regional friction wherever you are.
-            </p>
-          </article>
-          <article class="benefit-card fade-up" style="--d: 0.3s">
-            <div class="bcard-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              </svg>
-            </div>
-            <h3>Full Privacy</h3>
-            <p>
-              Privacy-first defaults minimize exposure by encrypting traffic and
-              limiting identifiable network activity across all your apps.
-            </p>
-          </article>
-          <article class="benefit-card fade-up" style="--d: 0.4s">
-            <div class="bcard-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 8v4l3 3" />
-              </svg>
-            </div>
-            <h3>24/7 Support</h3>
-            <p>
-              Support resources and guidance are available around the clock so
-              setup and troubleshooting stay simple whenever you need it.
-            </p>
-          </article>
-          <article class="benefit-card fade-up" style="--d: 0.5s">
-            <div class="bcard-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+
+            <div class="form-row">
+              <label class="form-field" for="contact-email">
+                <span class="form-label">Email Address</span>
+                <input
+                  id="contact-email"
+                  name="email"
+                  type="email"
+                  placeholder="you@example.com"
+                  required
                 />
-              </svg>
+              </label>
             </div>
-            <h3>Easy Setup</h3>
-            <p>
-              Install quickly, choose your location, and secure your connection
-              in seconds with a clean, straightforward setup flow.
-            </p>
-          </article>
+
+            <div class="form-row">
+              <label class="form-field" for="contact-message">
+                <span class="form-label">Message</span>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  rows="5"
+                  placeholder="Tell me about your project..."
+                  required
+                ></textarea>
+              </label>
+            </div>
+
+            <button type="submit" class="btn-primary form-submit">
+              <span>Send message</span>
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </button>
+            <p class="form-status" aria-live="polite"></p>
+          </form>
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════
-       FEATURE SPLIT  #1  — Privacy on every network
-  ═══════════════════════════════════════════════ -->
-    <section class="feature-split section" id="feature-privacy">
-      <div class="container">
-        <div class="fsplit-inner fsplit-img-right fade-up">
-
-          <!-- Text side -->
-          <div class="fsplit-text">
-            <span class="label-tag">Always Protected</span>
-            <h2>Your privacy on every network, everywhere.</h2>
-            <p>Whether you're catching up on work at a coffee shop, booking flights at the airport, or streaming from a hotel room — SiliconVPN encrypts every byte before it leaves your device.</p>
-
-            <ul class="fsplit-points">
-              <li>
-                <div class="fsplit-point-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                </div>
-                <div>
-                  <strong>Automatic kill switch</strong>
-                  <span>Your connection goes dark the instant VPN drops — no leaks, ever.</span>
-                </div>
-              </li>
-              <li>
-                <div class="fsplit-point-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                </div>
-                <div>
-                  <strong>Zero DNS leaks</strong>
-                  <span>All queries route through our encrypted servers so your ISP sees nothing.</span>
-                </div>
-              </li>
-              <li>
-                <div class="fsplit-point-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                </div>
-                <div>
-                  <strong>Military-grade AES-256</strong>
-                  <span>The gold standard used by banks, governments, and intelligence agencies.</span>
-                </div>
-              </li>
-            </ul>
-            <a href="#pricing" class="btn btn-primary btn-lg" style="width:fit-content;margin-top:8px;">Get Protected Now</a>
-          </div>
-
-          <!-- Visual side -->
-          <div class="fsplit-visual">
-            <div class="fsplit-card-scene">
-              <div class="fsplit-glow"></div>
-
-              <!-- Main mock UI card -->
-              <div class="fsplit-mockcard">
-                <div class="fmc-header">
-                  <div class="fmc-status">
-                    <span class="fmc-dot connected"></span>
-                    <span class="fmc-status-txt">Connected</span>
-                  </div>
-                  <span class="fmc-proto">WireGuard</span>
-                </div>
-                <div class="fmc-ip">
-                  <span class="fmc-ip-label">Your visible IP</span>
-                  <span class="fmc-ip-value">185.220.<span class="fmc-redact">XXX.XXX</span></span>
-                </div>
-                <div class="fmc-loc-row">
-                  <div class="fmc-flag">🇳🇱</div>
-                  <div class="fmc-loc-info">
-                    <strong>Amsterdam</strong>
-                    <span>Netherlands · 12 ms</span>
-                  </div>
-                  <div class="fmc-signal">
-                    <span></span><span></span><span></span><span></span>
-                  </div>
-                </div>
-                <div class="fmc-enc">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                  AES-256-GCM Encrypted
-                </div>
-              </div>
-
-              <!-- Floating badges -->
-              <div class="fsplit-badge fsplit-badge-1">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg>
-                No Logs
-              </div>
-              <div class="fsplit-badge fsplit-badge-2">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                10 Gbps Servers
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════════
-       HOW IT WORKS
-  ═══════════════════════════════════════════════ -->
-    <section class="section how-section" id="how-it-works">
-      <div class="container">
-        <div class="section-head fade-up">
-          <span class="label-tag">Simple Process</span>
-          <h2>Up and running in 3 minutes</h2>
-          <p>
-            No technical knowledge required. Three steps and you're protected.
-          </p>
-        </div>
-        <div class="steps-row">
-          <div class="step fade-up" style="--d: 0s">
-            <div class="step-num">01</div>
-            <h3>Create Your Account</h3>
-            <p>
-              Sign up in under a minute. No credit card required for the free
-              plan — just an email and you're in.
-            </p>
-          </div>
-          <div class="step-arrow fade-up" style="--d: 0.1s">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </div>
-          <div class="step fade-up" style="--d: 0.15s">
-            <div class="step-num">02</div>
-            <h3>Pick a Server</h3>
-            <p>
-              Choose from 90+ global locations. Our smart routing picks the
-              fastest one for you automatically.
-            </p>
-          </div>
-          <div class="step-arrow fade-up" style="--d: 0.25s">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </div>
-          <div class="step fade-up" style="--d: 0.3s">
-            <div class="step-num">03</div>
-            <h3>Connect &amp; Browse</h3>
-            <p>
-              One tap and you're protected. Your IP is masked, traffic is
-              encrypted, and you're free to browse anything.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════════
-       PRICING
-  ═══════════════════════════════════════════════ -->
-    <section class="section pricing-section" id="pricing">
-      <div class="container">
-        <div class="section-head fade-up">
-          <span class="label-tag">Plans</span>
-          <h2>Simple, transparent pricing</h2>
-          <p>
-            From occasional browsing to always-on coverage for all your devices
-            — choose what fits.
-          </p>
-        </div>
-        <div class="pricing-grid">
-          <div class="pcard fade-up" style="--d: 0s">
-            <span class="pcard-badge">Starter</span>
-            <h3 class="pcard-name">Basic</h3>
-            <div class="pcard-price"><span class="price-num">Free</span></div>
-            <p class="pcard-desc">
-              Perfect for occasional use and getting a feel for SiliconVPN.
-            </p>
-            <ul class="pcard-features">
-              <li class="feat-on">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  width="14"
-                  height="14"
-                >
-                  <polyline points="20 6 9 17 4 12" /></svg
-                >Access to 10+ servers
-              </li>
-              <li class="feat-on">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  width="14"
-                  height="14"
-                >
-                  <polyline points="20 6 9 17 4 12" /></svg
-                >Standard encryption
-              </li>
-              <li class="feat-on">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  width="14"
-                  height="14"
-                >
-                  <polyline points="20 6 9 17 4 12" /></svg
-                >Basic support
-              </li>
-              <li class="feat-off">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  width="14"
-                  height="14"
-                >
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" /></svg
-                >Unlimited bandwidth
-              </li>
-              <li class="feat-off">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  width="14"
-                  height="14"
-                >
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" /></svg
-                >Multi-device
-              </li>
-            </ul>
-            <a href="#" class="btn btn-outline pcard-cta">Download Free</a>
-          </div>
-
-          <div class="pcard fade-up" style="--d: 0.12s">
-            <span class="pcard-badge pcard-badge-pop">Popular</span>
-            <h3 class="pcard-name">Standard</h3>
-            <div class="pcard-price">
-              <span class="price-num">$20</span
-              ><span class="price-per">/mo</span>
-            </div>
-            <p class="pcard-desc">
-              Great for remote workers and frequent travellers needing reliable
-              coverage.
-            </p>
-            <ul class="pcard-features">
-              <li class="feat-on">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  width="14"
-                  height="14"
-                >
-                  <polyline points="20 6 9 17 4 12" /></svg
-                >Access to 50+ servers
-              </li>
-              <li class="feat-on">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  width="14"
-                  height="14"
-                >
-                  <polyline points="20 6 9 17 4 12" /></svg
-                >Advanced encryption
-              </li>
-              <li class="feat-on">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  width="14"
-                  height="14"
-                >
-                  <polyline points="20 6 9 17 4 12" /></svg
-                >Priority support
-              </li>
-              <li class="feat-on">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  width="14"
-                  height="14"
-                >
-                  <polyline points="20 6 9 17 4 12" /></svg
-                >Unlimited bandwidth
-              </li>
-              <li class="feat-on">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  width="14"
-                  height="14"
-                >
-                  <polyline points="20 6 9 17 4 12" /></svg
-                >No cooldown
-              </li>
-              <li class="feat-off">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  width="14"
-                  height="14"
-                >
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" /></svg
-                >Multi-device
-              </li>
-            </ul>
-            <a href="#" class="btn btn-primary pcard-cta">Choose Plan</a>
-          </div>
-
-          <div class="pcard pcard-featured fade-up" style="--d: 0.24s">
-            <span class="pcard-badge pcard-badge-gold">Best Value</span>
-            <h3 class="pcard-name">Premium</h3>
-            <div class="pcard-price">
-              <span class="price-num">$40</span
-              ><span class="price-per">/mo</span>
-            </div>
-            <p class="pcard-desc">
-              Everything you need for total digital freedom across all your
-              devices, always.
-            </p>
-            <ul class="pcard-features">
-              <li class="feat-on">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  width="14"
-                  height="14"
-                >
-                  <polyline points="20 6 9 17 4 12" /></svg
-                >All 90+ servers worldwide
-              </li>
-              <li class="feat-on">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  width="14"
-                  height="14"
-                >
-                  <polyline points="20 6 9 17 4 12" /></svg
-                >Top-tier encryption
-              </li>
-              <li class="feat-on">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  width="14"
-                  height="14"
-                >
-                  <polyline points="20 6 9 17 4 12" /></svg
-                >24/7 dedicated support
-              </li>
-              <li class="feat-on">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  width="14"
-                  height="14"
-                >
-                  <polyline points="20 6 9 17 4 12" /></svg
-                >Unlimited bandwidth
-              </li>
-              <li class="feat-on">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  width="14"
-                  height="14"
-                >
-                  <polyline points="20 6 9 17 4 12" /></svg
-                >No cooldown
-              </li>
-              <li class="feat-on">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  width="14"
-                  height="14"
-                >
-                  <polyline points="20 6 9 17 4 12" /></svg
-                >Multi-device support
-              </li>
-              <li class="feat-on">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  width="14"
-                  height="14"
-                >
-                  <polyline points="20 6 9 17 4 12" /></svg
-                >Password Manager
-              </li>
-            </ul>
-            <a href="#" class="btn btn-gold pcard-cta">Choose Plan</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════════
-       FEATURE SPLIT  #2  — One account, every device
-  ═══════════════════════════════════════════════ -->
-    <section class="feature-split feature-split-dark section" id="feature-devices">
-      <div class="container">
-        <div class="fsplit-inner fsplit-img-left fade-up">
-
-          <!-- Visual side -->
-          <div class="fsplit-visual">
-            <div class="fsplit-card-scene fsplit-scene-devices">
-              <div class="fsplit-glow fsplit-glow-gold"></div>
-
-              <!-- Device stack mock -->
-              <div class="fdev-stack">
-                <div class="fdev-card fdev-laptop">
-                  <div class="fdev-bar">
-                    <div class="fdev-dots"><span></span><span></span><span></span></div>
-                    <div class="fdev-addr">siliconvpn.io</div>
-                    <div class="fdev-lock">🔒</div>
-                  </div>
-                  <div class="fdev-body">
-                    <div class="fdev-line fw"></div>
-                    <div class="fdev-line fm"></div>
-                    <div class="fdev-line fs"></div>
-                  </div>
-                </div>
-                <div class="fdev-card fdev-phone">
-                  <div class="fdev-phone-bar">
-                    <span class="fdev-phone-dot"></span>
-                  </div>
-                  <div class="fdev-phone-body">
-                    <div class="fdev-shield-icon">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    </div>
-                    <span class="fdev-phone-connected">Connected</span>
-                  </div>
-                </div>
-                <div class="fdev-count-badge">
-                  <strong>10</strong>
-                  <span>devices</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Text side -->
-          <div class="fsplit-text">
-            <span class="label-tag label-tag-light">Multi-Device</span>
-            <h2>One account.<br/>Protect up to ten devices.</h2>
-            <p>From your laptop and phone to your tablet and router — a single Premium plan covers your entire digital life. Every device encrypted, all at once.</p>
-
-            <ul class="fsplit-points fsplit-points-light">
-              <li>
-                <div class="fsplit-point-icon fsplit-point-icon-light">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-                </div>
-                <div>
-                  <strong>All platforms covered</strong>
-                  <span>Windows, macOS, iOS, Android, Linux, and router support built-in.</span>
-                </div>
-              </li>
-              <li>
-                <div class="fsplit-point-icon fsplit-point-icon-light">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                </div>
-                <div>
-                  <strong>Simultaneous connections</strong>
-                  <span>All 10 devices connect at the same time — no queuing, no compromise.</span>
-                </div>
-              </li>
-              <li>
-                <div class="fsplit-point-icon fsplit-point-icon-light">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-                </div>
-                <div>
-                  <strong>Smart server matching</strong>
-                  <span>Each device auto-picks the nearest, fastest server for optimal speed.</span>
-                </div>
-              </li>
-            </ul>
-            <a href="#pricing" class="btn btn-gold btn-lg" style="width:fit-content;margin-top:8px;">Unlock Premium</a>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════════
-       FAQ  (tabbed two-column redesign)
-  ═══════════════════════════════════════════════ -->
-    <section class="section faq-section" id="faq">
-      <div class="container">
-
-        <div class="section-head fade-up">
-          <span class="label-tag">FAQ</span>
-          <h2>Everything you need to know</h2>
-          <p>Browse by topic or search any question. We've covered it all.</p>
-        </div>
-
-        <!-- Category tabs -->
-        <div class="faq-tabs fade-up" role="tablist" aria-label="FAQ categories">
-          <button class="faq-tab active" role="tab" aria-selected="true"  data-tab="general">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg>
-            General
-          </button>
-          <button class="faq-tab" role="tab" aria-selected="false" data-tab="privacy">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            Privacy &amp; Security
-          </button>
-          <button class="faq-tab" role="tab" aria-selected="false" data-tab="plans">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
-            Plans &amp; Billing
-          </button>
-          <button class="faq-tab" role="tab" aria-selected="false" data-tab="technical">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-            Technical
-          </button>
-        </div>
-
-        <!-- Panels -->
-        <div class="faq-panels">
-
-          <!-- General -->
-          <div class="faq-panel active" data-panel="general">
-            <div class="faq-two-col">
-              <div class="faq-col">
-                <div class="faq-item">
-                  <button class="faq-q" type="button" aria-expanded="false">
-                    <span>Is SiliconVPN a real service?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-                  </button>
-                  <div class="faq-a"><p>SiliconVPN is a portfolio concept created to demonstrate UI design and frontend skills. It is not a live VPN service — no real connections are made.</p></div>
-                </div>
-                <div class="faq-item">
-                  <button class="faq-q" type="button" aria-expanded="false">
-                    <span>What devices can I use it on?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-                  </button>
-                  <div class="faq-a"><p>The concept covers Windows, macOS, iOS, and Android workflows. Premium plan members get simultaneous support across up to 10 devices with one account.</p></div>
-                </div>
-                <div class="faq-item">
-                  <button class="faq-q" type="button" aria-expanded="false">
-                    <span>How many server locations are there?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-                  </button>
-                  <div class="faq-a"><p>SiliconVPN features 90+ server locations across the globe. Free plan users access 10+ servers; Standard unlocks 50+; Premium unlocks all regions with the lowest latency guarantee.</p></div>
-                </div>
-                <div class="faq-item">
-                  <button class="faq-q" type="button" aria-expanded="false">
-                    <span>Is SiliconVPN open source?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-                  </button>
-                  <div class="faq-a"><p>Not currently. A public repository may be shared in a future release of this project. Follow the developer's GitHub profile for updates.</p></div>
-                </div>
-              </div>
-              <div class="faq-col">
-                <div class="faq-item">
-                  <button class="faq-q" type="button" aria-expanded="false">
-                    <span>How fast is the setup?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-                  </button>
-                  <div class="faq-a"><p>Setup takes under 3 minutes. Create an account, pick a server location, and tap connect. No technical knowledge required — it works right out of the box.</p></div>
-                </div>
-                <div class="faq-item">
-                  <button class="faq-q" type="button" aria-expanded="false">
-                    <span>Can I use SiliconVPN on public Wi-Fi?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-                  </button>
-                  <div class="faq-a"><p>Absolutely — that's the primary use case. SiliconVPN encrypts all traffic on open or shared networks like coffee shops, airports, and hotels so eavesdroppers see nothing.</p></div>
-                </div>
-                <div class="faq-item">
-                  <button class="faq-q" type="button" aria-expanded="false">
-                    <span>Does it work for streaming?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-                  </button>
-                  <div class="faq-a"><p>Yes. SiliconVPN's optimized servers support HD and 4K streaming with minimal buffering. Switch to a server in your target region to access geo-restricted content effortlessly.</p></div>
-                </div>
-                <div class="faq-item">
-                  <button class="faq-q" type="button" aria-expanded="false">
-                    <span>Is there 24/7 customer support?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-                  </button>
-                  <div class="faq-a"><p>Premium plan members receive 24/7 dedicated live support. All other plans include access to our help centre, setup guides, and community forum around the clock.</p></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Privacy & Security -->
-          <div class="faq-panel" data-panel="privacy">
-            <div class="faq-two-col">
-              <div class="faq-col">
-                <div class="faq-item">
-                  <button class="faq-q" type="button" aria-expanded="false">
-                    <span>Does SiliconVPN keep logs?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-                  </button>
-                  <div class="faq-a"><p>Strictly no-logs. SiliconVPN does not monitor, record, or share your browsing activity, connection timestamps, IP addresses, or bandwidth usage. What you do is your business.</p></div>
-                </div>
-                <div class="faq-item">
-                  <button class="faq-q" type="button" aria-expanded="false">
-                    <span>What encryption standard is used?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-                  </button>
-                  <div class="faq-a"><p>AES-256-GCM encryption — the same standard used by military and financial institutions. Premium adds ChaCha20 for mobile connections where battery efficiency also matters.</p></div>
-                </div>
-                <div class="faq-item">
-                  <button class="faq-q" type="button" aria-expanded="false">
-                    <span>What VPN protocol does it use?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-                  </button>
-                  <div class="faq-a"><p>WireGuard by default — the fastest and most modern VPN protocol available. OpenVPN and IKEv2 are also supported for compatibility with older systems and corporate firewalls.</p></div>
-                </div>
-              </div>
-              <div class="faq-col">
-                <div class="faq-item">
-                  <button class="faq-q" type="button" aria-expanded="false">
-                    <span>Is there a kill switch?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-                  </button>
-                  <div class="faq-a"><p>Yes. The automatic kill switch cuts your internet connection the moment VPN drops, preventing any unencrypted data from leaking. It re-connects automatically once the VPN is restored.</p></div>
-                </div>
-                <div class="faq-item">
-                  <button class="faq-q" type="button" aria-expanded="false">
-                    <span>Does it protect against DNS leaks?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-                  </button>
-                  <div class="faq-a"><p>All DNS queries are routed exclusively through SiliconVPN's encrypted servers. Built-in DNS leak prevention ensures your ISP can never see which domains you are accessing.</p></div>
-                </div>
-                <div class="faq-item">
-                  <button class="faq-q" type="button" aria-expanded="false">
-                    <span>Can SiliconVPN be detected?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-                  </button>
-                  <div class="faq-a"><p>Obfuscation mode disguises VPN traffic as regular HTTPS traffic, making it extremely difficult to detect or block — useful in restrictive network environments.</p></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Plans & Billing -->
-          <div class="faq-panel" data-panel="plans">
-            <div class="faq-two-col">
-              <div class="faq-col">
-                <div class="faq-item">
-                  <button class="faq-q" type="button" aria-expanded="false">
-                    <span>Is there a free plan?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-                  </button>
-                  <div class="faq-a"><p>Yes. The Basic plan is completely free — no credit card required. It includes access to 10+ servers and standard encryption, forever. Upgrade anytime when you need more.</p></div>
-                </div>
-                <div class="faq-item">
-                  <button class="faq-q" type="button" aria-expanded="false">
-                    <span>Can I cancel my subscription anytime?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-                  </button>
-                  <div class="faq-a"><p>Absolutely. No lock-in contracts. Cancel or downgrade at any time from your account settings — you'll keep access until the end of the current billing cycle.</p></div>
-                </div>
-                <div class="faq-item">
-                  <button class="faq-q" type="button" aria-expanded="false">
-                    <span>Is there a refund policy?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-                  </button>
-                  <div class="faq-a"><p>Yes — a 30-day money-back guarantee on all paid plans. If you're not satisfied for any reason, request a full refund within 30 days with no questions asked.</p></div>
-                </div>
-              </div>
-              <div class="faq-col">
-                <div class="faq-item">
-                  <button class="faq-q" type="button" aria-expanded="false">
-                    <span>What payment methods are accepted?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-                  </button>
-                  <div class="faq-a"><p>Credit and debit cards, PayPal, Apple Pay, Google Pay, and cryptocurrency are all accepted. Paying with crypto adds an extra layer of payment privacy.</p></div>
-                </div>
-                <div class="faq-item">
-                  <button class="faq-q" type="button" aria-expanded="false">
-                    <span>Can I share my plan with family?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-                  </button>
-                  <div class="faq-a"><p>The Premium plan supports up to 10 simultaneous devices on a single account, making it ideal for families or households. Each device connects independently with full performance.</p></div>
-                </div>
-                <div class="faq-item">
-                  <button class="faq-q" type="button" aria-expanded="false">
-                    <span>Are there annual plan discounts?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-                  </button>
-                  <div class="faq-a"><p>Choosing an annual plan saves up to 40% compared to the monthly rate. Two-year plans offer the deepest discount. All plans include the same 30-day money-back guarantee.</p></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Technical -->
-          <div class="faq-panel" data-panel="technical">
-            <div class="faq-two-col">
-              <div class="faq-col">
-                <div class="faq-item">
-                  <button class="faq-q" type="button" aria-expanded="false">
-                    <span>Will a VPN slow down my internet?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-                  </button>
-                  <div class="faq-a"><p>Minimal impact. On fast connections (100 Mbps+), you'll typically see less than a 5% speed reduction. Our WireGuard protocol and 10 Gbps servers are specifically optimised to keep speeds near-native.</p></div>
-                </div>
-                <div class="faq-item">
-                  <button class="faq-q" type="button" aria-expanded="false">
-                    <span>Does it work on routers?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-                  </button>
-                  <div class="faq-a"><p>Yes. SiliconVPN supports router-level installation via OpenVPN and WireGuard configs. Once installed, every device on your home network is automatically protected — including smart TVs and consoles.</p></div>
-                </div>
-                <div class="faq-item">
-                  <button class="faq-q" type="button" aria-expanded="false">
-                    <span>What is split tunnelling?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-                  </button>
-                  <div class="faq-a"><p>Split tunnelling lets you choose which apps route through the VPN and which use your regular connection. Great for online banking apps that block VPN IPs while you browse privately elsewhere.</p></div>
-                </div>
-              </div>
-              <div class="faq-col">
-                <div class="faq-item">
-                  <button class="faq-q" type="button" aria-expanded="false">
-                    <span>Can I use it for torrenting?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-                  </button>
-                  <div class="faq-a"><p>P2P traffic is supported on dedicated torrent-optimised servers. Your IP is fully masked throughout, and the kill switch ensures nothing leaks if the connection ever drops mid-download.</p></div>
-                </div>
-                <div class="faq-item">
-                  <button class="faq-q" type="button" aria-expanded="false">
-                    <span>Is there a browser extension?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-                  </button>
-                  <div class="faq-a"><p>Chrome and Firefox extensions are available for browser-only protection. For full system coverage, use the desktop or mobile app which encrypts all traffic — not just the browser.</p></div>
-                </div>
-                <div class="faq-item">
-                  <button class="faq-q" type="button" aria-expanded="false">
-                    <span>Does it work in restrictive countries?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-                  </button>
-                  <div class="faq-a"><p>Obfuscation mode disguises VPN traffic as regular web traffic, allowing it to work reliably in regions where standard VPN protocols are blocked or restricted.</p></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div><!-- /faq-panels -->
-
-        <!-- Bottom CTA strip -->
-        <div class="faq-cta-strip fade-up">
-          <div class="faq-cta-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          </div>
-          <div class="faq-cta-text">
-            <strong>Still have questions?</strong>
-            <span>Our support team replies in under 5 minutes.</span>
-          </div>
-          <a href="#contact" class="btn btn-primary">Contact Support</a>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════════
-       CTA BANNER
-  ═══════════════════════════════════════════════ -->
-    <section class="cta-banner fade-up">
-      <div class="cta-banner-inner">
-        <div class="cta-blob"></div>
-        <h2>Start browsing privately — for free.</h2>
-        <p>No credit card. No commitment. Just one tap to privacy.</p>
-        <div class="cta-btns">
-          <a href="#pricing" class="btn btn-white btn-lg">Get Started Free</a>
-          <a href="#faq" class="btn btn-ghost-light btn-lg">Read the FAQ</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════════
-       FOOTER
-  ═══════════════════════════════════════════════ -->
-    <footer class="footer" id="contact">
-      <div class="footer-top">
+    <!--FOOTER-->
+    <footer class="footer" id="footer">
+      <div class="footer-inner">
         <div class="footer-brand">
-          <a href="#" class="footer-logo-link">
-            <img src="assets/logo.png" alt="SiliconVPN" />
-            <span class="logo-text">SiliconVPN</span>
+          <a href="index.html" class="logo footer-logo" aria-label="MystiqDev">
+            <img src="assets/logo-colored.webp" alt="" width="32" height="32" />
+            <span class="logo-name">MystiqDev</span>
           </a>
           <p class="footer-tagline">
-            Secure, fast, and private internet for everyone — everywhere.
+            Front-end developer from Oman crafting clean, fast, and beautiful
+            web experiences.
           </p>
           <div class="footer-socials">
             <a
-              href="https://twitter.com"
+              href="https://x.com/my_st45"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Twitter"
-              class="soc-btn"
-            >
-              <img class="soc-def" src="assets/twitter.png" alt="" /><img
-                class="soc-hov"
-                src="assets/twitter-hover.png"
-                alt=""
-              />
-            </a>
+              aria-label="Twitter/X"
+              ><ion-icon name="logo-twitter"></ion-icon
+            ></a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/mystique-x-9572b93a7/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              class="soc-btn"
-            >
-              <img class="soc-def" src="assets/linkedin.png" alt="" /><img
-                class="soc-hov"
-                src="assets/linkedin-hover.png"
-                alt=""
-              />
-            </a>
+              ><ion-icon name="logo-linkedin"></ion-icon
+            ></a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/mysti_qdev/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              class="soc-btn"
-            >
-              <img class="soc-def" src="assets/instagram.png" alt="" /><img
-                class="soc-hov"
-                src="assets/instagram-hover.png"
-                alt=""
-              />
-            </a>
+              ><ion-icon name="logo-instagram"></ion-icon
+            ></a>
             <a
-              href="https://github.com"
+              href="https://github.com/MystiqDev"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
-              class="soc-btn"
-            >
-              <img class="soc-def" src="assets/github.png" alt="" /><img
-                class="soc-hov"
-                src="assets/github-hover.png"
-                alt=""
-              />
-            </a>
+              ><ion-icon name="logo-github"></ion-icon
+            ></a>
           </div>
         </div>
+
         <div class="footer-col">
           <span class="footer-col-title">Navigate</span>
-          <a href="#benefits">Benefits</a>
-          <a href="#how-it-works">How It Works</a>
-          <a href="#pricing">Pricing</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#services">Services</a>
           <a href="#faq">FAQ</a>
           <a href="#contact">Contact</a>
         </div>
-        <div class="footer-col">
+
+        <div class="footer-col" id="credits">
           <span class="footer-col-title">Credits</span>
-          <a
-            href="https://unsplash.com/photos/a-blurry-image-of-a-blue-and-pink-background-VXXvmc7wQjY"
-            target="_blank"
-            rel="noopener"
-            >Background — Unsplash</a
+          <a href="https://www.flaticon.com/free-icons/ux" title="ux icons"
+            >UX icons — Tanah Basah</a
           >
           <a
-            href="https://din-studio.com/flat-design-style-and-its-characters/"
-            target="_blank"
-            rel="noopener"
-            >Vector art — DinStudio</a
+            href="https://www.flaticon.com/free-icons/stopwatch"
+            title="stopwatch icons"
+            >Stopwatch — fjstudio</a
           >
-          <a href="https://www.svgrepo.com/" target="_blank" rel="noopener"
-            >Icons — SVG Repo</a
+          <a
+            href="https://www.flaticon.com/free-icon/responsive_11442002"
+            title="responsive icon"
+            >Responsive — Saepul Nahwan</a
+          >
+          <a
+            href="https://www.flaticon.com/free-icons/settings"
+            title="settings icons"
+            >Settings — Pixel perfect</a
+          >
+          <a
+            href="https://www.flaticon.com/free-icons/landing-page"
+            title="landing page icons"
+            >Landing page — deemakdaksina</a
+          >
+          <a
+            href="https://www.flaticon.com/free-icons/folder"
+            title="folder icons"
+            >Folder — Tanah Basah</a
           >
         </div>
       </div>
+
       <div class="footer-bottom">
-        <p>© 2026 MystiqDev. All rights reserved.</p>
-        <p class="footer-note">Built with HTML, CSS &amp; Vanilla JS</p>
+        <p>&copy; 2026 MystiqDev. All rights reserved.</p>
+        <p class="footer-built">Built with HTML, CSS &amp; Vanilla JS</p>
       </div>
     </footer>
 
     <!-- Back to top -->
-    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2.5"
-        width="20"
-        height="20"
-      >
-        <polyline points="18 15 12 9 6 15" />
-      </svg>
+    <button
+      class="back-to-top"
+      id="backToTop"
+      type="button"
+      aria-label="Back to top"
+    >
+      <ion-icon name="arrow-up-outline"></ion-icon>
     </button>
-
-    <script src="script.js"></script>
   </body>
 </html>
